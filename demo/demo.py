@@ -15,7 +15,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = cloudmersive_virus_api_client.ScanApi()
-input_file = '/path/to/file.txt' # file | Input file to perform the operation on.
+input_file = 'C:\\Temp\\input.csv' # file | Input file to perform the operation on.
 
 api_instance.api_client.configuration.api_key = {}
 api_instance.api_client.configuration.api_key['Apikey'] = '04d1a7be-c9d1-4d93-8ec4-e7545c2a570a'
