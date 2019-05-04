@@ -5,6 +5,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**scan_file**](ScanApi.md#scan_file) | **POST** /virus/scan/file | Scan a file for viruses
+[**scan_website**](ScanApi.md#scan_website) | **POST** /virus/scan/website | Scan a website for malicious content including viruses and threats (including Phishing)
 
 
 # **scan_file**
@@ -55,6 +56,58 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **scan_website**
+> WebsiteScanResult scan_website(input)
+
+Scan a website for malicious content including viruses and threats (including Phishing)
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudmersive_virus_api_client
+from cloudmersive_virus_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: Apikey
+configuration = cloudmersive_virus_api_client.Configuration()
+configuration.api_key['Apikey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Apikey'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudmersive_virus_api_client.ScanApi(cloudmersive_virus_api_client.ApiClient(configuration))
+input = cloudmersive_virus_api_client.WebsiteScanRequest() # WebsiteScanRequest | 
+
+try:
+    # Scan a website for malicious content including viruses and threats (including Phishing)
+    api_response = api_instance.scan_website(input)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ScanApi->scan_website: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**WebsiteScanRequest**](WebsiteScanRequest.md)|  | 
+
+### Return type
+
+[**WebsiteScanResult**](WebsiteScanResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
  - **Accept**: application/json, text/json, application/xml, text/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

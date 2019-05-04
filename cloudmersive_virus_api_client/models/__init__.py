@@ -17,3 +17,5 @@ from __future__ import absolute_import
 # import models into model package
 from cloudmersive_virus_api_client.models.virus_found import VirusFound
 from cloudmersive_virus_api_client.models.virus_scan_result import VirusScanResult
+from cloudmersive_virus_api_client.models.website_scan_request import WebsiteScanRequest
+from cloudmersive_virus_api_client.models.website_scan_result import WebsiteScanResult

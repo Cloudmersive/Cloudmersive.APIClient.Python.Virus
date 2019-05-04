@@ -24,3 +24,5 @@ from cloudmersive_virus_api_client.configuration import Configuration
 # import models into sdk package
 from cloudmersive_virus_api_client.models.virus_found import VirusFound
 from cloudmersive_virus_api_client.models.virus_scan_result import VirusScanResult
+from cloudmersive_virus_api_client.models.website_scan_request import WebsiteScanRequest
+from cloudmersive_virus_api_client.models.website_scan_result import WebsiteScanResult
