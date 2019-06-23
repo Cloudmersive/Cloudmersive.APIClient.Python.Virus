@@ -3,7 +3,7 @@
 """
     virusapi
 
-    Virus API lets you scan files and content for viruses and identify security issues with content.  # noqa: E501
+    The Cloudmersive Virus Scan API lets you scan files and content for viruses and identify security issues with content.  # noqa: E501
 
     OpenAPI spec version: v1
     
@@ -119,6 +119,9 @@ class VirusFound(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(VirusFound, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

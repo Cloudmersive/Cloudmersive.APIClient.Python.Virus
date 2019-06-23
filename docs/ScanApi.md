@@ -5,7 +5,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**scan_file**](ScanApi.md#scan_file) | **POST** /virus/scan/file | Scan a file for viruses
-[**scan_website**](ScanApi.md#scan_website) | **POST** /virus/scan/website | Scan a website for malicious content including viruses and threats (including Phishing)
+[**scan_website**](ScanApi.md#scan_website) | **POST** /virus/scan/website | Scan a website for malicious content and threats
 
 
 # **scan_file**
@@ -63,7 +63,9 @@ Name | Type | Description  | Notes
 # **scan_website**
 > WebsiteScanResult scan_website(input)
 
-Scan a website for malicious content including viruses and threats (including Phishing)
+Scan a website for malicious content and threats
+
+Operation includes scanning the content of the URL for various types of malicious content and threats, including viruses and threats (including Phishing)
 
 ### Example
 ```python
@@ -84,7 +86,7 @@ api_instance = cloudmersive_virus_api_client.ScanApi(cloudmersive_virus_api_clie
 input = cloudmersive_virus_api_client.WebsiteScanRequest() # WebsiteScanRequest | 
 
 try:
-    # Scan a website for malicious content including viruses and threats (including Phishing)
+    # Scan a website for malicious content and threats
     api_response = api_instance.scan_website(input)
     pprint(api_response)
 except ApiException as e:

@@ -3,7 +3,7 @@
 """
     virusapi
 
-    Virus API lets you scan files and content for viruses and identify security issues with content.  # noqa: E501
+    The Cloudmersive Virus Scan API lets you scan files and content for viruses and identify security issues with content.  # noqa: E501
 
     OpenAPI spec version: v1
     
@@ -37,18 +37,18 @@ class ScanApi(object):
         """Scan a file for viruses  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.scan_file(input_file, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.scan_file(input_file, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param file input_file: Input file to perform the operation on. (required)
         :return: VirusScanResult
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.scan_file_with_http_info(input_file, **kwargs)  # noqa: E501
         else:
             (data) = self.scan_file_with_http_info(input_file, **kwargs)  # noqa: E501
@@ -58,11 +58,11 @@ class ScanApi(object):
         """Scan a file for viruses  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.scan_file_with_http_info(input_file, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.scan_file_with_http_info(input_file, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param file input_file: Input file to perform the operation on. (required)
         :return: VirusScanResult
                  If the method is called asynchronously,
@@ -70,7 +70,7 @@ class ScanApi(object):
         """
 
         all_params = ['input_file']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -124,42 +124,44 @@ class ScanApi(object):
             files=local_var_files,
             response_type='VirusScanResult',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
     def scan_website(self, input, **kwargs):  # noqa: E501
-        """Scan a website for malicious content including viruses and threats (including Phishing)  # noqa: E501
+        """Scan a website for malicious content and threats  # noqa: E501
 
+        Operation includes scanning the content of the URL for various types of malicious content and threats, including viruses and threats (including Phishing)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.scan_website(input, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.scan_website(input, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param WebsiteScanRequest input: (required)
         :return: WebsiteScanResult
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.scan_website_with_http_info(input, **kwargs)  # noqa: E501
         else:
             (data) = self.scan_website_with_http_info(input, **kwargs)  # noqa: E501
             return data
 
     def scan_website_with_http_info(self, input, **kwargs):  # noqa: E501
-        """Scan a website for malicious content including viruses and threats (including Phishing)  # noqa: E501
+        """Scan a website for malicious content and threats  # noqa: E501
 
+        Operation includes scanning the content of the URL for various types of malicious content and threats, including viruses and threats (including Phishing)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.scan_website_with_http_info(input, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.scan_website_with_http_info(input, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param WebsiteScanRequest input: (required)
         :return: WebsiteScanResult
                  If the method is called asynchronously,
@@ -167,7 +169,7 @@ class ScanApi(object):
         """
 
         all_params = ['input']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -221,7 +223,7 @@ class ScanApi(object):
             files=local_var_files,
             response_type='WebsiteScanResult',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

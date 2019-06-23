@@ -3,7 +3,7 @@
 """
     virusapi
 
-    Virus API lets you scan files and content for viruses and identify security issues with content.  # noqa: E501
+    The Cloudmersive Virus Scan API lets you scan files and content for viruses and identify security issues with content.  # noqa: E501
 
     OpenAPI spec version: v1
     
@@ -14,7 +14,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "cloudmersive_virus_api_client"
-VERSION = "1.1.5"
+VERSION = "2.0.1"
 # To install the library, run the following
 #
 # python setup.py install
@@ -22,7 +22,13 @@ VERSION = "1.1.5"
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 
-REQUIRES = ["urllib3 >= 1.15", "six >= 1.10", "certifi", "python-dateutil"]
+REQUIRES = [
+    "certifi>=2017.4.17",
+    "python-dateutil>=2.1",
+    "six>=1.10",
+    "urllib3>=1.23"
+]
+    
 
 setup(
     name=NAME,
@@ -35,6 +41,6 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     long_description="""\
-    Virus API lets you scan files and content for viruses and identify security issues with content.  # noqa: E501
+    The Cloudmersive Virus Scan API lets you scan files and content for viruses and identify security issues with content.  # noqa: E501
     """
 )

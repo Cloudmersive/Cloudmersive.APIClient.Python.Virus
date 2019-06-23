@@ -3,7 +3,7 @@
 """
     virusapi
 
-    Virus API lets you scan files and content for viruses and identify security issues with content.  # noqa: E501
+    The Cloudmersive Virus Scan API lets you scan files and content for viruses and identify security issues with content.  # noqa: E501
 
     OpenAPI spec version: v1
     
@@ -95,7 +95,7 @@ class WebsiteScanResult(object):
         :param website_threat_type: The website_threat_type of this WebsiteScanResult.  # noqa: E501
         :type: str
         """
-        allowed_values = ["None", "Malware", "Phishing", "ForcedDownload"]  # noqa: E501
+        allowed_values = ["None", "Malware", "Phishing", "ForcedDownload", "UnableToConnect"]  # noqa: E501
         if website_threat_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `website_threat_type` ({0}), must be one of {1}"  # noqa: E501
@@ -125,6 +125,9 @@ class WebsiteScanResult(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(WebsiteScanResult, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 
