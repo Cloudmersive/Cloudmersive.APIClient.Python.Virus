@@ -3,7 +3,7 @@
 """
     virusapi
 
-    The Cloudmersive Virus Scan API lets you scan files and content for viruses and identify security issues with content.  # noqa: E501
+    
 
     OpenAPI spec version: v1
     
@@ -14,13 +14,16 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "cloudmersive_virus_api_client"
-VERSION = "2.0.1"
+VERSION = "2.0.2"
 # To install the library, run the following
 #
 # python setup.py install
 #
 # prerequisite: setuptools
-# http://pypi.python.org/pypi/setuptools
+from os import path
+this_directory = path.abspath(path.dirname(__file__))
+with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
+    long_description = f.read()
 
 REQUIRES = [
     "certifi>=2017.4.17",
@@ -35,12 +38,13 @@ setup(
     version=VERSION,
     description="virusapi",
     author_email="",
-    url="",
+    url="https://www.cloudmersive.com/virus-api",
     keywords=["Swagger", "virusapi"],
     install_requires=REQUIRES,
     packages=find_packages(),
     include_package_data=True,
-    long_description="""\
-    The Cloudmersive Virus Scan API lets you scan files and content for viruses and identify security issues with content.  # noqa: E501
-    """
+    long_description=long_description,
+    long_description_content_type='text/markdown'
+    
+
 )

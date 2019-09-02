@@ -36,6 +36,7 @@ class ScanApi(object):
     def scan_file(self, input_file, **kwargs):  # noqa: E501
         """Scan a file for viruses  # noqa: E501
 
+        Scan files and content for viruses. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 5 million virus and malware signatures.  Continuous cloud-based updates.  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.scan_file(input_file, async_req=True)
@@ -57,6 +58,7 @@ class ScanApi(object):
     def scan_file_with_http_info(self, input_file, **kwargs):  # noqa: E501
         """Scan a file for viruses  # noqa: E501
 
+        Scan files and content for viruses. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 5 million virus and malware signatures.  Continuous cloud-based updates.  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.scan_file_with_http_info(input_file, async_req=True)
@@ -133,7 +135,7 @@ class ScanApi(object):
     def scan_website(self, input, **kwargs):  # noqa: E501
         """Scan a website for malicious content and threats  # noqa: E501
 
-        Operation includes scanning the content of the URL for various types of malicious content and threats, including viruses and threats (including Phishing)  # noqa: E501
+        Operation includes scanning the content of the URL for various types of malicious content and threats, including viruses and threats (including Phishing).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.scan_website(input, async_req=True)
@@ -155,7 +157,7 @@ class ScanApi(object):
     def scan_website_with_http_info(self, input, **kwargs):  # noqa: E501
         """Scan a website for malicious content and threats  # noqa: E501
 
-        Operation includes scanning the content of the URL for various types of malicious content and threats, including viruses and threats (including Phishing)  # noqa: E501
+        Operation includes scanning the content of the URL for various types of malicious content and threats, including viruses and threats (including Phishing).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.scan_website_with_http_info(input, async_req=True)
