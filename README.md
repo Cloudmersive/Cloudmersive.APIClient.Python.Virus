@@ -4,7 +4,7 @@ The Cloudmersive Virus Scan API lets you scan files and content for viruses and 
 This Python package provides a native API client for [Cloudmersive Anti-Virus Scan API](https://www.cloudmersive.com/virus-api)
 
 - API version: v1
-- Package version: 2.0.2
+- Package version: 2.0.3
 - Build package: io.swagger.codegen.languages.PythonClientCodegen
 
 ## Requirements.
@@ -77,12 +77,14 @@ All URIs are relative to *https://api.cloudmersive.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ScanApi* | [**scan_file**](docs/ScanApi.md#scan_file) | **POST** /virus/scan/file | Scan a file for viruses
+*ScanApi* | [**scan_file_advanced**](docs/ScanApi.md#scan_file_advanced) | **POST** /virus/scan/file/advanced | Advanced Scan a file for viruses
 *ScanApi* | [**scan_website**](docs/ScanApi.md#scan_website) | **POST** /virus/scan/website | Scan a website for malicious content and threats
 
 
 ## Documentation For Models
 
  - [VirusFound](docs/VirusFound.md)
+ - [VirusScanAdvancedResult](docs/VirusScanAdvancedResult.md)
  - [VirusScanResult](docs/VirusScanResult.md)
  - [WebsiteScanRequest](docs/WebsiteScanRequest.md)
  - [WebsiteScanResult](docs/WebsiteScanResult.md)
