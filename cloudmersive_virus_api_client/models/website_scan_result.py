@@ -35,21 +35,24 @@ class WebsiteScanResult(object):
     swagger_types = {
         'clean_result': 'bool',
         'website_threat_type': 'str',
-        'found_viruses': 'list[VirusFound]'
+        'found_viruses': 'list[VirusFound]',
+        'website_http_response_code': 'int'
     }
 
     attribute_map = {
         'clean_result': 'CleanResult',
         'website_threat_type': 'WebsiteThreatType',
-        'found_viruses': 'FoundViruses'
+        'found_viruses': 'FoundViruses',
+        'website_http_response_code': 'WebsiteHttpResponseCode'
     }
 
-    def __init__(self, clean_result=None, website_threat_type=None, found_viruses=None):  # noqa: E501
+    def __init__(self, clean_result=None, website_threat_type=None, found_viruses=None, website_http_response_code=None):  # noqa: E501
         """WebsiteScanResult - a model defined in Swagger"""  # noqa: E501
 
         self._clean_result = None
         self._website_threat_type = None
         self._found_viruses = None
+        self._website_http_response_code = None
         self.discriminator = None
 
         if clean_result is not None:
@@ -58,6 +61,8 @@ class WebsiteScanResult(object):
             self.website_threat_type = website_threat_type
         if found_viruses is not None:
             self.found_viruses = found_viruses
+        if website_http_response_code is not None:
+            self.website_http_response_code = website_http_response_code
 
     @property
     def clean_result(self):
@@ -133,6 +138,29 @@ class WebsiteScanResult(object):
         """
 
         self._found_viruses = found_viruses
+
+    @property
+    def website_http_response_code(self):
+        """Gets the website_http_response_code of this WebsiteScanResult.  # noqa: E501
+
+        The remote server URL HTTP reasponse code; useful for debugging issues with scanning; typically if the remote server returns a 200 or 300-series code this means a successful response, while a 400 or 500 series code would represent an error returned from the remote server for the provided URL.  # noqa: E501
+
+        :return: The website_http_response_code of this WebsiteScanResult.  # noqa: E501
+        :rtype: int
+        """
+        return self._website_http_response_code
+
+    @website_http_response_code.setter
+    def website_http_response_code(self, website_http_response_code):
+        """Sets the website_http_response_code of this WebsiteScanResult.
+
+        The remote server URL HTTP reasponse code; useful for debugging issues with scanning; typically if the remote server returns a 200 or 300-series code this means a successful response, while a 400 or 500 series code would represent an error returned from the remote server for the provided URL.  # noqa: E501
+
+        :param website_http_response_code: The website_http_response_code of this WebsiteScanResult.  # noqa: E501
+        :type: int
+        """
+
+        self._website_http_response_code = website_http_response_code
 
     def to_dict(self):
         """Returns the model properties as a dict"""
