@@ -17,11 +17,14 @@ from __future__ import absolute_import
 
 # import apis into sdk package
 from cloudmersive_virus_api_client.api.scan_api import ScanApi
+from cloudmersive_virus_api_client.api.scan_cloud_storage_api import ScanCloudStorageApi
 
 # import ApiClient
 from cloudmersive_virus_api_client.api_client import ApiClient
 from cloudmersive_virus_api_client.configuration import Configuration
 # import models into sdk package
+from cloudmersive_virus_api_client.models.cloud_storage_virus_found import CloudStorageVirusFound
+from cloudmersive_virus_api_client.models.cloud_storage_virus_scan_result import CloudStorageVirusScanResult
 from cloudmersive_virus_api_client.models.virus_found import VirusFound
 from cloudmersive_virus_api_client.models.virus_scan_advanced_result import VirusScanAdvancedResult
 from cloudmersive_virus_api_client.models.virus_scan_result import VirusScanResult

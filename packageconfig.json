@@ -1,6 +1,6 @@
 ﻿{
-"projectName" : "cloudmersive_virus_api_client",
-  "packageName" : "cloudmersive_virus_api_client",
-  "packageVersion": "3.0.1",
-  "packageUrl": "https://www.cloudmersive.com/virus-api"
-}  
+    "projectName": "cloudmersive_virus_api_client",
+    "packageName": "cloudmersive_virus_api_client",
+    "packageVersion": "3.0.2",
+    "packageUrl": "https://www.cloudmersive.com/virus-api"
+}
