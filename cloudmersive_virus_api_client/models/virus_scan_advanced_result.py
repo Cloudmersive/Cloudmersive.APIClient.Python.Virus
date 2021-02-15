@@ -37,6 +37,7 @@ class VirusScanAdvancedResult(object):
         'contains_script': 'bool',
         'contains_password_protected_file': 'bool',
         'contains_restricted_file_format': 'bool',
+        'contains_macros': 'bool',
         'verified_file_format': 'str',
         'found_viruses': 'list[VirusFound]'
     }
@@ -48,11 +49,12 @@ class VirusScanAdvancedResult(object):
         'contains_script': 'ContainsScript',
         'contains_password_protected_file': 'ContainsPasswordProtectedFile',
         'contains_restricted_file_format': 'ContainsRestrictedFileFormat',
+        'contains_macros': 'ContainsMacros',
         'verified_file_format': 'VerifiedFileFormat',
         'found_viruses': 'FoundViruses'
     }
 
-    def __init__(self, clean_result=None, contains_executable=None, contains_invalid_file=None, contains_script=None, contains_password_protected_file=None, contains_restricted_file_format=None, verified_file_format=None, found_viruses=None):  # noqa: E501
+    def __init__(self, clean_result=None, contains_executable=None, contains_invalid_file=None, contains_script=None, contains_password_protected_file=None, contains_restricted_file_format=None, contains_macros=None, verified_file_format=None, found_viruses=None):  # noqa: E501
         """VirusScanAdvancedResult - a model defined in Swagger"""  # noqa: E501
 
         self._clean_result = None
@@ -61,6 +63,7 @@ class VirusScanAdvancedResult(object):
         self._contains_script = None
         self._contains_password_protected_file = None
         self._contains_restricted_file_format = None
+        self._contains_macros = None
         self._verified_file_format = None
         self._found_viruses = None
         self.discriminator = None
@@ -77,6 +80,8 @@ class VirusScanAdvancedResult(object):
             self.contains_password_protected_file = contains_password_protected_file
         if contains_restricted_file_format is not None:
             self.contains_restricted_file_format = contains_restricted_file_format
+        if contains_macros is not None:
+            self.contains_macros = contains_macros
         if verified_file_format is not None:
             self.verified_file_format = verified_file_format
         if found_viruses is not None:
@@ -219,6 +224,29 @@ class VirusScanAdvancedResult(object):
         """
 
         self._contains_restricted_file_format = contains_restricted_file_format
+
+    @property
+    def contains_macros(self):
+        """Gets the contains_macros of this VirusScanAdvancedResult.  # noqa: E501
+
+        True if the uploaded file contains embedded Macros of other embedded threats within the document, which can be a significant risk factor  # noqa: E501
+
+        :return: The contains_macros of this VirusScanAdvancedResult.  # noqa: E501
+        :rtype: bool
+        """
+        return self._contains_macros
+
+    @contains_macros.setter
+    def contains_macros(self, contains_macros):
+        """Sets the contains_macros of this VirusScanAdvancedResult.
+
+        True if the uploaded file contains embedded Macros of other embedded threats within the document, which can be a significant risk factor  # noqa: E501
+
+        :param contains_macros: The contains_macros of this VirusScanAdvancedResult.  # noqa: E501
+        :type: bool
+        """
+
+        self._contains_macros = contains_macros
 
     @property
     def verified_file_format(self):

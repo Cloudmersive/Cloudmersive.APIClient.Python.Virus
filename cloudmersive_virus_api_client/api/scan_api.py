@@ -147,6 +147,7 @@ class ScanApi(object):
         :param bool allow_invalid_files: Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended).
         :param bool allow_scripts: Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended).
         :param bool allow_password_protected_files: Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended).
+        :param bool allow_macros: Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended).
         :param str restrict_file_types: Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult=false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled.
         :return: VirusScanAdvancedResult
                  If the method is called asynchronously,
@@ -174,13 +175,14 @@ class ScanApi(object):
         :param bool allow_invalid_files: Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended).
         :param bool allow_scripts: Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended).
         :param bool allow_password_protected_files: Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended).
+        :param bool allow_macros: Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended).
         :param str restrict_file_types: Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult=false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled.
         :return: VirusScanAdvancedResult
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['input_file', 'allow_executables', 'allow_invalid_files', 'allow_scripts', 'allow_password_protected_files', 'restrict_file_types']  # noqa: E501
+        all_params = ['input_file', 'allow_executables', 'allow_invalid_files', 'allow_scripts', 'allow_password_protected_files', 'allow_macros', 'restrict_file_types']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -215,6 +217,8 @@ class ScanApi(object):
             header_params['allowScripts'] = params['allow_scripts']  # noqa: E501
         if 'allow_password_protected_files' in params:
             header_params['allowPasswordProtectedFiles'] = params['allow_password_protected_files']  # noqa: E501
+        if 'allow_macros' in params:
+            header_params['allowMacros'] = params['allow_macros']  # noqa: E501
         if 'restrict_file_types' in params:
             header_params['restrictFileTypes'] = params['restrict_file_types']  # noqa: E501
 
