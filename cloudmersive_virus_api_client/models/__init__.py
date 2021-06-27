@@ -15,6 +15,7 @@
 from __future__ import absolute_import
 
 # import models into model package
+from cloudmersive_virus_api_client.models.cloud_storage_advanced_virus_scan_result import CloudStorageAdvancedVirusScanResult
 from cloudmersive_virus_api_client.models.cloud_storage_virus_found import CloudStorageVirusFound
 from cloudmersive_virus_api_client.models.cloud_storage_virus_scan_result import CloudStorageVirusScanResult
 from cloudmersive_virus_api_client.models.virus_found import VirusFound

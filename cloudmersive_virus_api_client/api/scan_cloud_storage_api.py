@@ -164,6 +164,161 @@ class ScanCloudStorageApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def scan_cloud_storage_scan_aws_s3_file_advanced(self, access_key, secret_key, bucket_region, bucket_name, key_name, **kwargs):  # noqa: E501
+        """Advanced Scan an AWS S3 file for viruses  # noqa: E501
+
+        Advanced Scan the contents of a single AWS S3 file and its content for viruses and threats. Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.scan_cloud_storage_scan_aws_s3_file_advanced(access_key, secret_key, bucket_region, bucket_name, key_name, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str access_key: AWS S3 access key for the S3 bucket; you can get this from My Security Credentials in the AWS console (required)
+        :param str secret_key: AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console (required)
+        :param str bucket_region: Name of the region of the S3 bucket, such as 'US-East-1' (required)
+        :param str bucket_name: Name of the S3 bucket (required)
+        :param str key_name: Key name (also called file name) of the file in S3 that you wish to scan for viruses (required)
+        :param bool allow_executables: Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended).
+        :param bool allow_invalid_files: Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended).
+        :param bool allow_scripts: Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended).
+        :param bool allow_password_protected_files: Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended).
+        :param bool allow_macros: Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended).
+        :param str restrict_file_types: Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult=false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled.
+        :return: CloudStorageAdvancedVirusScanResult
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.scan_cloud_storage_scan_aws_s3_file_advanced_with_http_info(access_key, secret_key, bucket_region, bucket_name, key_name, **kwargs)  # noqa: E501
+        else:
+            (data) = self.scan_cloud_storage_scan_aws_s3_file_advanced_with_http_info(access_key, secret_key, bucket_region, bucket_name, key_name, **kwargs)  # noqa: E501
+            return data
+
+    def scan_cloud_storage_scan_aws_s3_file_advanced_with_http_info(self, access_key, secret_key, bucket_region, bucket_name, key_name, **kwargs):  # noqa: E501
+        """Advanced Scan an AWS S3 file for viruses  # noqa: E501
+
+        Advanced Scan the contents of a single AWS S3 file and its content for viruses and threats. Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.scan_cloud_storage_scan_aws_s3_file_advanced_with_http_info(access_key, secret_key, bucket_region, bucket_name, key_name, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str access_key: AWS S3 access key for the S3 bucket; you can get this from My Security Credentials in the AWS console (required)
+        :param str secret_key: AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console (required)
+        :param str bucket_region: Name of the region of the S3 bucket, such as 'US-East-1' (required)
+        :param str bucket_name: Name of the S3 bucket (required)
+        :param str key_name: Key name (also called file name) of the file in S3 that you wish to scan for viruses (required)
+        :param bool allow_executables: Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended).
+        :param bool allow_invalid_files: Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended).
+        :param bool allow_scripts: Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended).
+        :param bool allow_password_protected_files: Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended).
+        :param bool allow_macros: Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended).
+        :param str restrict_file_types: Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult=false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled.
+        :return: CloudStorageAdvancedVirusScanResult
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['access_key', 'secret_key', 'bucket_region', 'bucket_name', 'key_name', 'allow_executables', 'allow_invalid_files', 'allow_scripts', 'allow_password_protected_files', 'allow_macros', 'restrict_file_types']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method scan_cloud_storage_scan_aws_s3_file_advanced" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'access_key' is set
+        if ('access_key' not in params or
+                params['access_key'] is None):
+            raise ValueError("Missing the required parameter `access_key` when calling `scan_cloud_storage_scan_aws_s3_file_advanced`")  # noqa: E501
+        # verify the required parameter 'secret_key' is set
+        if ('secret_key' not in params or
+                params['secret_key'] is None):
+            raise ValueError("Missing the required parameter `secret_key` when calling `scan_cloud_storage_scan_aws_s3_file_advanced`")  # noqa: E501
+        # verify the required parameter 'bucket_region' is set
+        if ('bucket_region' not in params or
+                params['bucket_region'] is None):
+            raise ValueError("Missing the required parameter `bucket_region` when calling `scan_cloud_storage_scan_aws_s3_file_advanced`")  # noqa: E501
+        # verify the required parameter 'bucket_name' is set
+        if ('bucket_name' not in params or
+                params['bucket_name'] is None):
+            raise ValueError("Missing the required parameter `bucket_name` when calling `scan_cloud_storage_scan_aws_s3_file_advanced`")  # noqa: E501
+        # verify the required parameter 'key_name' is set
+        if ('key_name' not in params or
+                params['key_name'] is None):
+            raise ValueError("Missing the required parameter `key_name` when calling `scan_cloud_storage_scan_aws_s3_file_advanced`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+        if 'access_key' in params:
+            header_params['accessKey'] = params['access_key']  # noqa: E501
+        if 'secret_key' in params:
+            header_params['secretKey'] = params['secret_key']  # noqa: E501
+        if 'bucket_region' in params:
+            header_params['bucketRegion'] = params['bucket_region']  # noqa: E501
+        if 'bucket_name' in params:
+            header_params['bucketName'] = params['bucket_name']  # noqa: E501
+        if 'key_name' in params:
+            header_params['keyName'] = params['key_name']  # noqa: E501
+        if 'allow_executables' in params:
+            header_params['allowExecutables'] = params['allow_executables']  # noqa: E501
+        if 'allow_invalid_files' in params:
+            header_params['allowInvalidFiles'] = params['allow_invalid_files']  # noqa: E501
+        if 'allow_scripts' in params:
+            header_params['allowScripts'] = params['allow_scripts']  # noqa: E501
+        if 'allow_password_protected_files' in params:
+            header_params['allowPasswordProtectedFiles'] = params['allow_password_protected_files']  # noqa: E501
+        if 'allow_macros' in params:
+            header_params['allowMacros'] = params['allow_macros']  # noqa: E501
+        if 'restrict_file_types' in params:
+            header_params['restrictFileTypes'] = params['restrict_file_types']  # noqa: E501
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'text/json', 'application/xml', 'text/xml'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/virus/scan/cloud-storage/aws-s3/single/advanced', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CloudStorageAdvancedVirusScanResult',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def scan_cloud_storage_scan_azure_blob(self, connection_string, container_name, blob_path, **kwargs):  # noqa: E501
         """Scan an Azure Blob for viruses  # noqa: E501
 
@@ -279,6 +434,145 @@ class ScanCloudStorageApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def scan_cloud_storage_scan_azure_blob_advanced(self, connection_string, container_name, blob_path, **kwargs):  # noqa: E501
+        """Advanced Scan an Azure Blob for viruses  # noqa: E501
+
+        Advanced Scan the contents of a single Azure Blob and its content for viruses and threats.  Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.scan_cloud_storage_scan_azure_blob_advanced(connection_string, container_name, blob_path, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str connection_string: Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal. (required)
+        :param str container_name: Name of the Blob container within the Azure Blob Storage account (required)
+        :param str blob_path: Path to the blob within the container, such as 'hello.pdf' or '/folder/subfolder/world.pdf' (required)
+        :param bool allow_executables: Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended).
+        :param bool allow_invalid_files: Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended).
+        :param bool allow_scripts: Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended).
+        :param bool allow_password_protected_files: Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended).
+        :param bool allow_macros: Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended).
+        :param str restrict_file_types: Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult=false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled.
+        :return: CloudStorageAdvancedVirusScanResult
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.scan_cloud_storage_scan_azure_blob_advanced_with_http_info(connection_string, container_name, blob_path, **kwargs)  # noqa: E501
+        else:
+            (data) = self.scan_cloud_storage_scan_azure_blob_advanced_with_http_info(connection_string, container_name, blob_path, **kwargs)  # noqa: E501
+            return data
+
+    def scan_cloud_storage_scan_azure_blob_advanced_with_http_info(self, connection_string, container_name, blob_path, **kwargs):  # noqa: E501
+        """Advanced Scan an Azure Blob for viruses  # noqa: E501
+
+        Advanced Scan the contents of a single Azure Blob and its content for viruses and threats.  Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.scan_cloud_storage_scan_azure_blob_advanced_with_http_info(connection_string, container_name, blob_path, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str connection_string: Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal. (required)
+        :param str container_name: Name of the Blob container within the Azure Blob Storage account (required)
+        :param str blob_path: Path to the blob within the container, such as 'hello.pdf' or '/folder/subfolder/world.pdf' (required)
+        :param bool allow_executables: Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended).
+        :param bool allow_invalid_files: Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended).
+        :param bool allow_scripts: Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended).
+        :param bool allow_password_protected_files: Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended).
+        :param bool allow_macros: Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended).
+        :param str restrict_file_types: Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult=false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled.
+        :return: CloudStorageAdvancedVirusScanResult
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['connection_string', 'container_name', 'blob_path', 'allow_executables', 'allow_invalid_files', 'allow_scripts', 'allow_password_protected_files', 'allow_macros', 'restrict_file_types']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method scan_cloud_storage_scan_azure_blob_advanced" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'connection_string' is set
+        if ('connection_string' not in params or
+                params['connection_string'] is None):
+            raise ValueError("Missing the required parameter `connection_string` when calling `scan_cloud_storage_scan_azure_blob_advanced`")  # noqa: E501
+        # verify the required parameter 'container_name' is set
+        if ('container_name' not in params or
+                params['container_name'] is None):
+            raise ValueError("Missing the required parameter `container_name` when calling `scan_cloud_storage_scan_azure_blob_advanced`")  # noqa: E501
+        # verify the required parameter 'blob_path' is set
+        if ('blob_path' not in params or
+                params['blob_path'] is None):
+            raise ValueError("Missing the required parameter `blob_path` when calling `scan_cloud_storage_scan_azure_blob_advanced`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+        if 'connection_string' in params:
+            header_params['connectionString'] = params['connection_string']  # noqa: E501
+        if 'container_name' in params:
+            header_params['containerName'] = params['container_name']  # noqa: E501
+        if 'blob_path' in params:
+            header_params['blobPath'] = params['blob_path']  # noqa: E501
+        if 'allow_executables' in params:
+            header_params['allowExecutables'] = params['allow_executables']  # noqa: E501
+        if 'allow_invalid_files' in params:
+            header_params['allowInvalidFiles'] = params['allow_invalid_files']  # noqa: E501
+        if 'allow_scripts' in params:
+            header_params['allowScripts'] = params['allow_scripts']  # noqa: E501
+        if 'allow_password_protected_files' in params:
+            header_params['allowPasswordProtectedFiles'] = params['allow_password_protected_files']  # noqa: E501
+        if 'allow_macros' in params:
+            header_params['allowMacros'] = params['allow_macros']  # noqa: E501
+        if 'restrict_file_types' in params:
+            header_params['restrictFileTypes'] = params['restrict_file_types']  # noqa: E501
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'text/json', 'application/xml', 'text/xml'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/virus/scan/cloud-storage/azure-blob/single/advanced', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CloudStorageAdvancedVirusScanResult',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def scan_cloud_storage_scan_gcp_storage_file(self, bucket_name, object_name, json_credential_file, **kwargs):  # noqa: E501
         """Scan an Google Cloud Platform (GCP) Storage file for viruses  # noqa: E501
 
@@ -387,6 +681,145 @@ class ScanCloudStorageApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='CloudStorageVirusScanResult',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def scan_cloud_storage_scan_gcp_storage_file_advanced(self, bucket_name, object_name, json_credential_file, **kwargs):  # noqa: E501
+        """Advanced Scan an Google Cloud Platform (GCP) Storage file for viruses  # noqa: E501
+
+        Advanced Scan the contents of a single Google Cloud Platform (GCP) Storage file and its content for viruses and threats. Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.scan_cloud_storage_scan_gcp_storage_file_advanced(bucket_name, object_name, json_credential_file, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str bucket_name: Name of the bucket in Google Cloud Storage (required)
+        :param str object_name: Name of the object or file in Google Cloud Storage (required)
+        :param file json_credential_file: Service Account credential for Google Cloud stored in a JSON file. (required)
+        :param bool allow_executables: Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended).
+        :param bool allow_invalid_files: Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended).
+        :param bool allow_scripts: Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended).
+        :param bool allow_password_protected_files: Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended).
+        :param bool allow_macros: Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended).
+        :param str restrict_file_types: Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult=false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled.
+        :return: CloudStorageAdvancedVirusScanResult
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.scan_cloud_storage_scan_gcp_storage_file_advanced_with_http_info(bucket_name, object_name, json_credential_file, **kwargs)  # noqa: E501
+        else:
+            (data) = self.scan_cloud_storage_scan_gcp_storage_file_advanced_with_http_info(bucket_name, object_name, json_credential_file, **kwargs)  # noqa: E501
+            return data
+
+    def scan_cloud_storage_scan_gcp_storage_file_advanced_with_http_info(self, bucket_name, object_name, json_credential_file, **kwargs):  # noqa: E501
+        """Advanced Scan an Google Cloud Platform (GCP) Storage file for viruses  # noqa: E501
+
+        Advanced Scan the contents of a single Google Cloud Platform (GCP) Storage file and its content for viruses and threats. Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.scan_cloud_storage_scan_gcp_storage_file_advanced_with_http_info(bucket_name, object_name, json_credential_file, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str bucket_name: Name of the bucket in Google Cloud Storage (required)
+        :param str object_name: Name of the object or file in Google Cloud Storage (required)
+        :param file json_credential_file: Service Account credential for Google Cloud stored in a JSON file. (required)
+        :param bool allow_executables: Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended).
+        :param bool allow_invalid_files: Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended).
+        :param bool allow_scripts: Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended).
+        :param bool allow_password_protected_files: Set to false to block password protected and encrypted files, such as encrypted zip and rar files, and other files that seek to circumvent scanning through passwords.  Set to true to allow these file types.  Default is false (recommended).
+        :param bool allow_macros: Set to false to block macros and other threats embedded in document files, such as Word, Excel and PowerPoint embedded Macros, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended).
+        :param str restrict_file_types: Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult=false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled.
+        :return: CloudStorageAdvancedVirusScanResult
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['bucket_name', 'object_name', 'json_credential_file', 'allow_executables', 'allow_invalid_files', 'allow_scripts', 'allow_password_protected_files', 'allow_macros', 'restrict_file_types']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method scan_cloud_storage_scan_gcp_storage_file_advanced" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'bucket_name' is set
+        if ('bucket_name' not in params or
+                params['bucket_name'] is None):
+            raise ValueError("Missing the required parameter `bucket_name` when calling `scan_cloud_storage_scan_gcp_storage_file_advanced`")  # noqa: E501
+        # verify the required parameter 'object_name' is set
+        if ('object_name' not in params or
+                params['object_name'] is None):
+            raise ValueError("Missing the required parameter `object_name` when calling `scan_cloud_storage_scan_gcp_storage_file_advanced`")  # noqa: E501
+        # verify the required parameter 'json_credential_file' is set
+        if ('json_credential_file' not in params or
+                params['json_credential_file'] is None):
+            raise ValueError("Missing the required parameter `json_credential_file` when calling `scan_cloud_storage_scan_gcp_storage_file_advanced`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+        if 'bucket_name' in params:
+            header_params['bucketName'] = params['bucket_name']  # noqa: E501
+        if 'object_name' in params:
+            header_params['objectName'] = params['object_name']  # noqa: E501
+        if 'allow_executables' in params:
+            header_params['allowExecutables'] = params['allow_executables']  # noqa: E501
+        if 'allow_invalid_files' in params:
+            header_params['allowInvalidFiles'] = params['allow_invalid_files']  # noqa: E501
+        if 'allow_scripts' in params:
+            header_params['allowScripts'] = params['allow_scripts']  # noqa: E501
+        if 'allow_password_protected_files' in params:
+            header_params['allowPasswordProtectedFiles'] = params['allow_password_protected_files']  # noqa: E501
+        if 'allow_macros' in params:
+            header_params['allowMacros'] = params['allow_macros']  # noqa: E501
+        if 'restrict_file_types' in params:
+            header_params['restrictFileTypes'] = params['restrict_file_types']  # noqa: E501
+
+        form_params = []
+        local_var_files = {}
+        if 'json_credential_file' in params:
+            local_var_files['jsonCredentialFile'] = params['json_credential_file']  # noqa: E501
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'text/json', 'application/xml', 'text/xml'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/virus/scan/cloud-storage/gcp-storage/single/advanced', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CloudStorageAdvancedVirusScanResult',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
