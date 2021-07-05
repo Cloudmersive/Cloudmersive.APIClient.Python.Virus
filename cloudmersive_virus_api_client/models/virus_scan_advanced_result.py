@@ -38,6 +38,7 @@ class VirusScanAdvancedResult(object):
         'contains_password_protected_file': 'bool',
         'contains_restricted_file_format': 'bool',
         'contains_macros': 'bool',
+        'contains_xml_external_entities': 'bool',
         'verified_file_format': 'str',
         'found_viruses': 'list[VirusFound]'
     }
@@ -50,11 +51,12 @@ class VirusScanAdvancedResult(object):
         'contains_password_protected_file': 'ContainsPasswordProtectedFile',
         'contains_restricted_file_format': 'ContainsRestrictedFileFormat',
         'contains_macros': 'ContainsMacros',
+        'contains_xml_external_entities': 'ContainsXmlExternalEntities',
         'verified_file_format': 'VerifiedFileFormat',
         'found_viruses': 'FoundViruses'
     }
 
-    def __init__(self, clean_result=None, contains_executable=None, contains_invalid_file=None, contains_script=None, contains_password_protected_file=None, contains_restricted_file_format=None, contains_macros=None, verified_file_format=None, found_viruses=None):  # noqa: E501
+    def __init__(self, clean_result=None, contains_executable=None, contains_invalid_file=None, contains_script=None, contains_password_protected_file=None, contains_restricted_file_format=None, contains_macros=None, contains_xml_external_entities=None, verified_file_format=None, found_viruses=None):  # noqa: E501
         """VirusScanAdvancedResult - a model defined in Swagger"""  # noqa: E501
 
         self._clean_result = None
@@ -64,6 +66,7 @@ class VirusScanAdvancedResult(object):
         self._contains_password_protected_file = None
         self._contains_restricted_file_format = None
         self._contains_macros = None
+        self._contains_xml_external_entities = None
         self._verified_file_format = None
         self._found_viruses = None
         self.discriminator = None
@@ -82,6 +85,8 @@ class VirusScanAdvancedResult(object):
             self.contains_restricted_file_format = contains_restricted_file_format
         if contains_macros is not None:
             self.contains_macros = contains_macros
+        if contains_xml_external_entities is not None:
+            self.contains_xml_external_entities = contains_xml_external_entities
         if verified_file_format is not None:
             self.verified_file_format = verified_file_format
         if found_viruses is not None:
@@ -247,6 +252,29 @@ class VirusScanAdvancedResult(object):
         """
 
         self._contains_macros = contains_macros
+
+    @property
+    def contains_xml_external_entities(self):
+        """Gets the contains_xml_external_entities of this VirusScanAdvancedResult.  # noqa: E501
+
+        True if the uploaded file contains embedded XML External Entity threats of other embedded threats within the document, which can be a significant risk factor  # noqa: E501
+
+        :return: The contains_xml_external_entities of this VirusScanAdvancedResult.  # noqa: E501
+        :rtype: bool
+        """
+        return self._contains_xml_external_entities
+
+    @contains_xml_external_entities.setter
+    def contains_xml_external_entities(self, contains_xml_external_entities):
+        """Sets the contains_xml_external_entities of this VirusScanAdvancedResult.
+
+        True if the uploaded file contains embedded XML External Entity threats of other embedded threats within the document, which can be a significant risk factor  # noqa: E501
+
+        :param contains_xml_external_entities: The contains_xml_external_entities of this VirusScanAdvancedResult.  # noqa: E501
+        :type: bool
+        """
+
+        self._contains_xml_external_entities = contains_xml_external_entities
 
     @property
     def verified_file_format(self):
