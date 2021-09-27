@@ -4,7 +4,7 @@ The Cloudmersive Virus Scan API lets you scan files and content for viruses and 
 This Python package provides a native API client for [Cloudmersive Anti-Virus Scan API](https://www.cloudmersive.com/virus-api)
 
 - API version: v1
-- Package version: 3.0.5
+- Package version: 3.0.6
 - Build package: io.swagger.codegen.languages.PythonClientCodegen
 
 ## Requirements.
@@ -85,6 +85,8 @@ Class | Method | HTTP request | Description
 *ScanCloudStorageApi* | [**scan_cloud_storage_scan_azure_blob_advanced**](docs/ScanCloudStorageApi.md#scan_cloud_storage_scan_azure_blob_advanced) | **POST** /virus/scan/cloud-storage/azure-blob/single/advanced | Advanced Scan an Azure Blob for viruses
 *ScanCloudStorageApi* | [**scan_cloud_storage_scan_gcp_storage_file**](docs/ScanCloudStorageApi.md#scan_cloud_storage_scan_gcp_storage_file) | **POST** /virus/scan/cloud-storage/gcp-storage/single | Scan an Google Cloud Platform (GCP) Storage file for viruses
 *ScanCloudStorageApi* | [**scan_cloud_storage_scan_gcp_storage_file_advanced**](docs/ScanCloudStorageApi.md#scan_cloud_storage_scan_gcp_storage_file_advanced) | **POST** /virus/scan/cloud-storage/gcp-storage/single/advanced | Advanced Scan an Google Cloud Platform (GCP) Storage file for viruses
+*ScanCloudStorageApi* | [**scan_cloud_storage_scan_share_point_online_file**](docs/ScanCloudStorageApi.md#scan_cloud_storage_scan_share_point_online_file) | **POST** /virus/scan/cloud-storage/sharepoint-online/site/single | Virus Scan a file in a SharePoint Online Site Drive
+*ScanCloudStorageApi* | [**scan_cloud_storage_scan_share_point_online_file_advanced**](docs/ScanCloudStorageApi.md#scan_cloud_storage_scan_share_point_online_file_advanced) | **POST** /virus/scan/cloud-storage/sharepoint-online/site/advanced | Advanced Virus Scan a file in a SharePoint Online Site Drive
 
 
 ## Documentation For Models
