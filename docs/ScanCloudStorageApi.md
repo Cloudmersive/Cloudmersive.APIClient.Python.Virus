@@ -413,7 +413,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **scan_cloud_storage_scan_share_point_online_file**
-> CloudStorageVirusScanResult scan_cloud_storage_scan_share_point_online_file(client_id, client_secret, sharepoint_domain_name, site_id, file_path, tenant_id=tenant_id)
+> CloudStorageVirusScanResult scan_cloud_storage_scan_share_point_online_file(client_id, client_secret, sharepoint_domain_name, site_id, file_path, tenant_id=tenant_id, item_id=item_id)
 
 Virus Scan a file in a SharePoint Online Site Drive
 
@@ -441,10 +441,11 @@ sharepoint_domain_name = 'sharepoint_domain_name_example' # str | SharePoint Onl
 site_id = 'site_id_example' # str | Site ID (GUID) of the SharePoint site you wish to retrieve the file from
 file_path = 'file_path_example' # str | Path to the file within the drive, such as 'hello.pdf' or '/folder/subfolder/world.pdf'
 tenant_id = 'tenant_id_example' # str | Optional; Tenant ID of your Azure Active Directory (optional)
+item_id = 'item_id_example' # str | SharePoint itemID, such as a DriveItem Id (optional)
 
 try:
     # Virus Scan a file in a SharePoint Online Site Drive
-    api_response = api_instance.scan_cloud_storage_scan_share_point_online_file(client_id, client_secret, sharepoint_domain_name, site_id, file_path, tenant_id=tenant_id)
+    api_response = api_instance.scan_cloud_storage_scan_share_point_online_file(client_id, client_secret, sharepoint_domain_name, site_id, file_path, tenant_id=tenant_id, item_id=item_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ScanCloudStorageApi->scan_cloud_storage_scan_share_point_online_file: %s\n" % e)
@@ -460,6 +461,7 @@ Name | Type | Description  | Notes
  **site_id** | **str**| Site ID (GUID) of the SharePoint site you wish to retrieve the file from | 
  **file_path** | **str**| Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; | 
  **tenant_id** | **str**| Optional; Tenant ID of your Azure Active Directory | [optional] 
+ **item_id** | **str**| SharePoint itemID, such as a DriveItem Id | [optional] 
 
 ### Return type
 
@@ -477,7 +479,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **scan_cloud_storage_scan_share_point_online_file_advanced**
-> CloudStorageAdvancedVirusScanResult scan_cloud_storage_scan_share_point_online_file_advanced(client_id, client_secret, sharepoint_domain_name, site_id, file_path, tenant_id=tenant_id, allow_executables=allow_executables, allow_invalid_files=allow_invalid_files, allow_scripts=allow_scripts, allow_password_protected_files=allow_password_protected_files, allow_macros=allow_macros, allow_xml_external_entities=allow_xml_external_entities, restrict_file_types=restrict_file_types)
+> CloudStorageAdvancedVirusScanResult scan_cloud_storage_scan_share_point_online_file_advanced(client_id, client_secret, sharepoint_domain_name, site_id, tenant_id=tenant_id, file_path=file_path, item_id=item_id, allow_executables=allow_executables, allow_invalid_files=allow_invalid_files, allow_scripts=allow_scripts, allow_password_protected_files=allow_password_protected_files, allow_macros=allow_macros, allow_xml_external_entities=allow_xml_external_entities, restrict_file_types=restrict_file_types)
 
 Advanced Virus Scan a file in a SharePoint Online Site Drive
 
@@ -503,8 +505,9 @@ client_id = 'client_id_example' # str | Client ID access credentials; see descri
 client_secret = 'client_secret_example' # str | Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal
 sharepoint_domain_name = 'sharepoint_domain_name_example' # str | SharePoint Online domain name, such as mydomain.sharepoint.com
 site_id = 'site_id_example' # str | Site ID (GUID) of the SharePoint site you wish to retrieve the file from
-file_path = 'file_path_example' # str | Path to the file within the drive, such as 'hello.pdf' or '/folder/subfolder/world.pdf'
 tenant_id = 'tenant_id_example' # str | Optional; Tenant ID of your Azure Active Directory (optional)
+file_path = 'file_path_example' # str | Path to the file within the drive, such as 'hello.pdf' or '/folder/subfolder/world.pdf' (optional)
+item_id = 'item_id_example' # str | SharePoint itemID, such as a DriveItem Id (optional)
 allow_executables = true # bool | Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). (optional)
 allow_invalid_files = true # bool | Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). (optional)
 allow_scripts = true # bool | Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). (optional)
@@ -515,7 +518,7 @@ restrict_file_types = 'restrict_file_types_example' # str | Specify a restricted
 
 try:
     # Advanced Virus Scan a file in a SharePoint Online Site Drive
-    api_response = api_instance.scan_cloud_storage_scan_share_point_online_file_advanced(client_id, client_secret, sharepoint_domain_name, site_id, file_path, tenant_id=tenant_id, allow_executables=allow_executables, allow_invalid_files=allow_invalid_files, allow_scripts=allow_scripts, allow_password_protected_files=allow_password_protected_files, allow_macros=allow_macros, allow_xml_external_entities=allow_xml_external_entities, restrict_file_types=restrict_file_types)
+    api_response = api_instance.scan_cloud_storage_scan_share_point_online_file_advanced(client_id, client_secret, sharepoint_domain_name, site_id, tenant_id=tenant_id, file_path=file_path, item_id=item_id, allow_executables=allow_executables, allow_invalid_files=allow_invalid_files, allow_scripts=allow_scripts, allow_password_protected_files=allow_password_protected_files, allow_macros=allow_macros, allow_xml_external_entities=allow_xml_external_entities, restrict_file_types=restrict_file_types)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ScanCloudStorageApi->scan_cloud_storage_scan_share_point_online_file_advanced: %s\n" % e)
@@ -529,8 +532,9 @@ Name | Type | Description  | Notes
  **client_secret** | **str**| Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal | 
  **sharepoint_domain_name** | **str**| SharePoint Online domain name, such as mydomain.sharepoint.com | 
  **site_id** | **str**| Site ID (GUID) of the SharePoint site you wish to retrieve the file from | 
- **file_path** | **str**| Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; | 
  **tenant_id** | **str**| Optional; Tenant ID of your Azure Active Directory | [optional] 
+ **file_path** | **str**| Path to the file within the drive, such as &#39;hello.pdf&#39; or &#39;/folder/subfolder/world.pdf&#39; | [optional] 
+ **item_id** | **str**| SharePoint itemID, such as a DriveItem Id | [optional] 
  **allow_executables** | **bool**| Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended). | [optional] 
  **allow_invalid_files** | **bool**| Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended). | [optional] 
  **allow_scripts** | **bool**| Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended). | [optional] 

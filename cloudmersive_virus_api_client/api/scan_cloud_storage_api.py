@@ -855,6 +855,7 @@ class ScanCloudStorageApi(object):
         :param str site_id: Site ID (GUID) of the SharePoint site you wish to retrieve the file from (required)
         :param str file_path: Path to the file within the drive, such as 'hello.pdf' or '/folder/subfolder/world.pdf' (required)
         :param str tenant_id: Optional; Tenant ID of your Azure Active Directory
+        :param str item_id: SharePoint itemID, such as a DriveItem Id
         :return: CloudStorageVirusScanResult
                  If the method is called asynchronously,
                  returns the request thread.
@@ -882,12 +883,13 @@ class ScanCloudStorageApi(object):
         :param str site_id: Site ID (GUID) of the SharePoint site you wish to retrieve the file from (required)
         :param str file_path: Path to the file within the drive, such as 'hello.pdf' or '/folder/subfolder/world.pdf' (required)
         :param str tenant_id: Optional; Tenant ID of your Azure Active Directory
+        :param str item_id: SharePoint itemID, such as a DriveItem Id
         :return: CloudStorageVirusScanResult
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['client_id', 'client_secret', 'sharepoint_domain_name', 'site_id', 'file_path', 'tenant_id']  # noqa: E501
+        all_params = ['client_id', 'client_secret', 'sharepoint_domain_name', 'site_id', 'file_path', 'tenant_id', 'item_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -942,6 +944,8 @@ class ScanCloudStorageApi(object):
             header_params['tenantID'] = params['tenant_id']  # noqa: E501
         if 'file_path' in params:
             header_params['filePath'] = params['file_path']  # noqa: E501
+        if 'item_id' in params:
+            header_params['itemID'] = params['item_id']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -974,13 +978,13 @@ class ScanCloudStorageApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def scan_cloud_storage_scan_share_point_online_file_advanced(self, client_id, client_secret, sharepoint_domain_name, site_id, file_path, **kwargs):  # noqa: E501
+    def scan_cloud_storage_scan_share_point_online_file_advanced(self, client_id, client_secret, sharepoint_domain_name, site_id, **kwargs):  # noqa: E501
         """Advanced Virus Scan a file in a SharePoint Online Site Drive  # noqa: E501
 
         Advanced Virus Scan the contents of a single SharePoint Online Site Drive file and its content for viruses and threats.  Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time. To get the Client ID and Client Secret, follow these steps: (1) Navigate to the Azure Portal and click on Azure Active Directory, (2) click on App Registrations on the left hand side, (3) click on Register Application, (4) Name the application CloudmersiveAntiVirus and click on Register, (5) Get the client ID by clicking on Overview and copying the value labeled Application (client) ID, (6) click on Certificates and Secrets, (7) click on New client secret, choose a longer expiration and give the secret a name, (8) copy the secret value to the clipboard and save it securely, this is your Client Secret, (9) Now we need to grant permissions to SharePOint; click on API Permissions on the left hand side, (10) click on Add a permission and choose Microsoft Graph, (11) click on Application Permissions, (12) search for Sites.FullControl.All, (13) Click on Add Permissions, (14) now navigate back to Azure Active Directory and click on Enterprise Applications, click on CloudmersiveAntiVirus and click on Permissions, and (15) click on Grant Admin Consent.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.scan_cloud_storage_scan_share_point_online_file_advanced(client_id, client_secret, sharepoint_domain_name, site_id, file_path, async_req=True)
+        >>> thread = api.scan_cloud_storage_scan_share_point_online_file_advanced(client_id, client_secret, sharepoint_domain_name, site_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -988,8 +992,9 @@ class ScanCloudStorageApi(object):
         :param str client_secret: Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal (required)
         :param str sharepoint_domain_name: SharePoint Online domain name, such as mydomain.sharepoint.com (required)
         :param str site_id: Site ID (GUID) of the SharePoint site you wish to retrieve the file from (required)
-        :param str file_path: Path to the file within the drive, such as 'hello.pdf' or '/folder/subfolder/world.pdf' (required)
         :param str tenant_id: Optional; Tenant ID of your Azure Active Directory
+        :param str file_path: Path to the file within the drive, such as 'hello.pdf' or '/folder/subfolder/world.pdf'
+        :param str item_id: SharePoint itemID, such as a DriveItem Id
         :param bool allow_executables: Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended).
         :param bool allow_invalid_files: Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended).
         :param bool allow_scripts: Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended).
@@ -1003,18 +1008,18 @@ class ScanCloudStorageApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.scan_cloud_storage_scan_share_point_online_file_advanced_with_http_info(client_id, client_secret, sharepoint_domain_name, site_id, file_path, **kwargs)  # noqa: E501
+            return self.scan_cloud_storage_scan_share_point_online_file_advanced_with_http_info(client_id, client_secret, sharepoint_domain_name, site_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.scan_cloud_storage_scan_share_point_online_file_advanced_with_http_info(client_id, client_secret, sharepoint_domain_name, site_id, file_path, **kwargs)  # noqa: E501
+            (data) = self.scan_cloud_storage_scan_share_point_online_file_advanced_with_http_info(client_id, client_secret, sharepoint_domain_name, site_id, **kwargs)  # noqa: E501
             return data
 
-    def scan_cloud_storage_scan_share_point_online_file_advanced_with_http_info(self, client_id, client_secret, sharepoint_domain_name, site_id, file_path, **kwargs):  # noqa: E501
+    def scan_cloud_storage_scan_share_point_online_file_advanced_with_http_info(self, client_id, client_secret, sharepoint_domain_name, site_id, **kwargs):  # noqa: E501
         """Advanced Virus Scan a file in a SharePoint Online Site Drive  # noqa: E501
 
         Advanced Virus Scan the contents of a single SharePoint Online Site Drive file and its content for viruses and threats.  Advanced Scan files with 360-degree Content Protection across Viruses and Malware, executables, invalid files, scripts, and even restrictions on accepted file types with complete content verification. Customize threat rules to your needs. Leverage continuously updated signatures for millions of threats, and advanced high-performance scanning capabilities.  Over 17 million virus and malware signatures.  Continuous cloud-based updates.  Block threats beyond viruses including executables, scripts, invalid files, and more.  Optionally limit input files to a specific set of file types (e.g. PDF and Word Documents only).  Wide file format support including Office, PDF, HTML, Flash.  Zip support including .Zip, .Rar, .DMG, .Tar, and other archive formats.  Multi-threat scanning across viruses, malware, trojans, ransomware, and spyware.  High-speed in-memory scanning delivers subsecond typical response time. To get the Client ID and Client Secret, follow these steps: (1) Navigate to the Azure Portal and click on Azure Active Directory, (2) click on App Registrations on the left hand side, (3) click on Register Application, (4) Name the application CloudmersiveAntiVirus and click on Register, (5) Get the client ID by clicking on Overview and copying the value labeled Application (client) ID, (6) click on Certificates and Secrets, (7) click on New client secret, choose a longer expiration and give the secret a name, (8) copy the secret value to the clipboard and save it securely, this is your Client Secret, (9) Now we need to grant permissions to SharePOint; click on API Permissions on the left hand side, (10) click on Add a permission and choose Microsoft Graph, (11) click on Application Permissions, (12) search for Sites.FullControl.All, (13) Click on Add Permissions, (14) now navigate back to Azure Active Directory and click on Enterprise Applications, click on CloudmersiveAntiVirus and click on Permissions, and (15) click on Grant Admin Consent.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.scan_cloud_storage_scan_share_point_online_file_advanced_with_http_info(client_id, client_secret, sharepoint_domain_name, site_id, file_path, async_req=True)
+        >>> thread = api.scan_cloud_storage_scan_share_point_online_file_advanced_with_http_info(client_id, client_secret, sharepoint_domain_name, site_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -1022,8 +1027,9 @@ class ScanCloudStorageApi(object):
         :param str client_secret: Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal (required)
         :param str sharepoint_domain_name: SharePoint Online domain name, such as mydomain.sharepoint.com (required)
         :param str site_id: Site ID (GUID) of the SharePoint site you wish to retrieve the file from (required)
-        :param str file_path: Path to the file within the drive, such as 'hello.pdf' or '/folder/subfolder/world.pdf' (required)
         :param str tenant_id: Optional; Tenant ID of your Azure Active Directory
+        :param str file_path: Path to the file within the drive, such as 'hello.pdf' or '/folder/subfolder/world.pdf'
+        :param str item_id: SharePoint itemID, such as a DriveItem Id
         :param bool allow_executables: Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended).
         :param bool allow_invalid_files: Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended).
         :param bool allow_scripts: Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended).
@@ -1036,7 +1042,7 @@ class ScanCloudStorageApi(object):
                  returns the request thread.
         """
 
-        all_params = ['client_id', 'client_secret', 'sharepoint_domain_name', 'site_id', 'file_path', 'tenant_id', 'allow_executables', 'allow_invalid_files', 'allow_scripts', 'allow_password_protected_files', 'allow_macros', 'allow_xml_external_entities', 'restrict_file_types']  # noqa: E501
+        all_params = ['client_id', 'client_secret', 'sharepoint_domain_name', 'site_id', 'tenant_id', 'file_path', 'item_id', 'allow_executables', 'allow_invalid_files', 'allow_scripts', 'allow_password_protected_files', 'allow_macros', 'allow_xml_external_entities', 'restrict_file_types']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1067,10 +1073,6 @@ class ScanCloudStorageApi(object):
         if ('site_id' not in params or
                 params['site_id'] is None):
             raise ValueError("Missing the required parameter `site_id` when calling `scan_cloud_storage_scan_share_point_online_file_advanced`")  # noqa: E501
-        # verify the required parameter 'file_path' is set
-        if ('file_path' not in params or
-                params['file_path'] is None):
-            raise ValueError("Missing the required parameter `file_path` when calling `scan_cloud_storage_scan_share_point_online_file_advanced`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1091,6 +1093,8 @@ class ScanCloudStorageApi(object):
             header_params['tenantID'] = params['tenant_id']  # noqa: E501
         if 'file_path' in params:
             header_params['filePath'] = params['file_path']  # noqa: E501
+        if 'item_id' in params:
+            header_params['itemID'] = params['item_id']  # noqa: E501
         if 'allow_executables' in params:
             header_params['allowExecutables'] = params['allow_executables']  # noqa: E501
         if 'allow_invalid_files' in params:
