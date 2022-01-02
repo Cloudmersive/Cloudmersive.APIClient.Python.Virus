@@ -39,8 +39,11 @@ class VirusScanAdvancedResult(object):
         'contains_restricted_file_format': 'bool',
         'contains_macros': 'bool',
         'contains_xml_external_entities': 'bool',
+        'contains_insecure_deserialization': 'bool',
+        'contains_html': 'bool',
         'verified_file_format': 'str',
-        'found_viruses': 'list[VirusFound]'
+        'found_viruses': 'list[VirusFound]',
+        'content_information': 'AdditionalAdvancedScanInformation'
     }
 
     attribute_map = {
@@ -52,11 +55,14 @@ class VirusScanAdvancedResult(object):
         'contains_restricted_file_format': 'ContainsRestrictedFileFormat',
         'contains_macros': 'ContainsMacros',
         'contains_xml_external_entities': 'ContainsXmlExternalEntities',
+        'contains_insecure_deserialization': 'ContainsInsecureDeserialization',
+        'contains_html': 'ContainsHtml',
         'verified_file_format': 'VerifiedFileFormat',
-        'found_viruses': 'FoundViruses'
+        'found_viruses': 'FoundViruses',
+        'content_information': 'ContentInformation'
     }
 
-    def __init__(self, clean_result=None, contains_executable=None, contains_invalid_file=None, contains_script=None, contains_password_protected_file=None, contains_restricted_file_format=None, contains_macros=None, contains_xml_external_entities=None, verified_file_format=None, found_viruses=None):  # noqa: E501
+    def __init__(self, clean_result=None, contains_executable=None, contains_invalid_file=None, contains_script=None, contains_password_protected_file=None, contains_restricted_file_format=None, contains_macros=None, contains_xml_external_entities=None, contains_insecure_deserialization=None, contains_html=None, verified_file_format=None, found_viruses=None, content_information=None):  # noqa: E501
         """VirusScanAdvancedResult - a model defined in Swagger"""  # noqa: E501
 
         self._clean_result = None
@@ -67,8 +73,11 @@ class VirusScanAdvancedResult(object):
         self._contains_restricted_file_format = None
         self._contains_macros = None
         self._contains_xml_external_entities = None
+        self._contains_insecure_deserialization = None
+        self._contains_html = None
         self._verified_file_format = None
         self._found_viruses = None
+        self._content_information = None
         self.discriminator = None
 
         if clean_result is not None:
@@ -87,10 +96,16 @@ class VirusScanAdvancedResult(object):
             self.contains_macros = contains_macros
         if contains_xml_external_entities is not None:
             self.contains_xml_external_entities = contains_xml_external_entities
+        if contains_insecure_deserialization is not None:
+            self.contains_insecure_deserialization = contains_insecure_deserialization
+        if contains_html is not None:
+            self.contains_html = contains_html
         if verified_file_format is not None:
             self.verified_file_format = verified_file_format
         if found_viruses is not None:
             self.found_viruses = found_viruses
+        if content_information is not None:
+            self.content_information = content_information
 
     @property
     def clean_result(self):
@@ -277,6 +292,52 @@ class VirusScanAdvancedResult(object):
         self._contains_xml_external_entities = contains_xml_external_entities
 
     @property
+    def contains_insecure_deserialization(self):
+        """Gets the contains_insecure_deserialization of this VirusScanAdvancedResult.  # noqa: E501
+
+        True if the uploaded file contains embedded Insecure Deserialization threats of other embedded threats within the document, which can be a significant risk factor  # noqa: E501
+
+        :return: The contains_insecure_deserialization of this VirusScanAdvancedResult.  # noqa: E501
+        :rtype: bool
+        """
+        return self._contains_insecure_deserialization
+
+    @contains_insecure_deserialization.setter
+    def contains_insecure_deserialization(self, contains_insecure_deserialization):
+        """Sets the contains_insecure_deserialization of this VirusScanAdvancedResult.
+
+        True if the uploaded file contains embedded Insecure Deserialization threats of other embedded threats within the document, which can be a significant risk factor  # noqa: E501
+
+        :param contains_insecure_deserialization: The contains_insecure_deserialization of this VirusScanAdvancedResult.  # noqa: E501
+        :type: bool
+        """
+
+        self._contains_insecure_deserialization = contains_insecure_deserialization
+
+    @property
+    def contains_html(self):
+        """Gets the contains_html of this VirusScanAdvancedResult.  # noqa: E501
+
+        True if the uploaded file contains HTML, which can be a significant risk factor  # noqa: E501
+
+        :return: The contains_html of this VirusScanAdvancedResult.  # noqa: E501
+        :rtype: bool
+        """
+        return self._contains_html
+
+    @contains_html.setter
+    def contains_html(self, contains_html):
+        """Sets the contains_html of this VirusScanAdvancedResult.
+
+        True if the uploaded file contains HTML, which can be a significant risk factor  # noqa: E501
+
+        :param contains_html: The contains_html of this VirusScanAdvancedResult.  # noqa: E501
+        :type: bool
+        """
+
+        self._contains_html = contains_html
+
+    @property
     def verified_file_format(self):
         """Gets the verified_file_format of this VirusScanAdvancedResult.  # noqa: E501
 
@@ -321,6 +382,29 @@ class VirusScanAdvancedResult(object):
         """
 
         self._found_viruses = found_viruses
+
+    @property
+    def content_information(self):
+        """Gets the content_information of this VirusScanAdvancedResult.  # noqa: E501
+
+        Contains additional non-threat content verification information  # noqa: E501
+
+        :return: The content_information of this VirusScanAdvancedResult.  # noqa: E501
+        :rtype: AdditionalAdvancedScanInformation
+        """
+        return self._content_information
+
+    @content_information.setter
+    def content_information(self, content_information):
+        """Sets the content_information of this VirusScanAdvancedResult.
+
+        Contains additional non-threat content verification information  # noqa: E501
+
+        :param content_information: The content_information of this VirusScanAdvancedResult.  # noqa: E501
+        :type: AdditionalAdvancedScanInformation
+        """
+
+        self._content_information = content_information
 
     def to_dict(self):
         """Returns the model properties as a dict"""
