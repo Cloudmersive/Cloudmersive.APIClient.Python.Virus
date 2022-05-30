@@ -35,7 +35,8 @@ class CloudStorageVirusScanResult(object):
         'clean_result': 'bool',
         'found_viruses': 'list[CloudStorageVirusFound]',
         'error_detailed_description': 'str',
-        'file_size': 'int'
+        'file_size': 'int',
+        'contains_content_moderation_rejection': 'bool'
     }
 
     attribute_map = {
@@ -43,10 +44,11 @@ class CloudStorageVirusScanResult(object):
         'clean_result': 'CleanResult',
         'found_viruses': 'FoundViruses',
         'error_detailed_description': 'ErrorDetailedDescription',
-        'file_size': 'FileSize'
+        'file_size': 'FileSize',
+        'contains_content_moderation_rejection': 'ContainsContentModerationRejection'
     }
 
-    def __init__(self, successful=None, clean_result=None, found_viruses=None, error_detailed_description=None, file_size=None):  # noqa: E501
+    def __init__(self, successful=None, clean_result=None, found_viruses=None, error_detailed_description=None, file_size=None, contains_content_moderation_rejection=None):  # noqa: E501
         """CloudStorageVirusScanResult - a model defined in Swagger"""  # noqa: E501
 
         self._successful = None
@@ -54,6 +56,7 @@ class CloudStorageVirusScanResult(object):
         self._found_viruses = None
         self._error_detailed_description = None
         self._file_size = None
+        self._contains_content_moderation_rejection = None
         self.discriminator = None
 
         if successful is not None:
@@ -66,6 +69,8 @@ class CloudStorageVirusScanResult(object):
             self.error_detailed_description = error_detailed_description
         if file_size is not None:
             self.file_size = file_size
+        if contains_content_moderation_rejection is not None:
+            self.contains_content_moderation_rejection = contains_content_moderation_rejection
 
     @property
     def successful(self):
@@ -181,6 +186,29 @@ class CloudStorageVirusScanResult(object):
         """
 
         self._file_size = file_size
+
+    @property
+    def contains_content_moderation_rejection(self):
+        """Gets the contains_content_moderation_rejection of this CloudStorageVirusScanResult.  # noqa: E501
+
+        Set to true when using NSFW Content Moderation in the Cloudmersive Storage Protect product (disabled by default)  # noqa: E501
+
+        :return: The contains_content_moderation_rejection of this CloudStorageVirusScanResult.  # noqa: E501
+        :rtype: bool
+        """
+        return self._contains_content_moderation_rejection
+
+    @contains_content_moderation_rejection.setter
+    def contains_content_moderation_rejection(self, contains_content_moderation_rejection):
+        """Sets the contains_content_moderation_rejection of this CloudStorageVirusScanResult.
+
+        Set to true when using NSFW Content Moderation in the Cloudmersive Storage Protect product (disabled by default)  # noqa: E501
+
+        :param contains_content_moderation_rejection: The contains_content_moderation_rejection of this CloudStorageVirusScanResult.  # noqa: E501
+        :type: bool
+        """
+
+        self._contains_content_moderation_rejection = contains_content_moderation_rejection
 
     def to_dict(self):
         """Returns the model properties as a dict"""

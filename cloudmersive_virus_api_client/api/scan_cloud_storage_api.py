@@ -47,7 +47,7 @@ class ScanCloudStorageApi(object):
         :param str secret_key: AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console (required)
         :param str bucket_region: Name of the region of the S3 bucket, such as 'US-East-1' (required)
         :param str bucket_name: Name of the S3 bucket (required)
-        :param str key_name: Key name (also called file name) of the file in S3 that you wish to scan for viruses (required)
+        :param str key_name: Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'. (required)
         :return: CloudStorageVirusScanResult
                  If the method is called asynchronously,
                  returns the request thread.
@@ -73,7 +73,7 @@ class ScanCloudStorageApi(object):
         :param str secret_key: AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console (required)
         :param str bucket_region: Name of the region of the S3 bucket, such as 'US-East-1' (required)
         :param str bucket_name: Name of the S3 bucket (required)
-        :param str key_name: Key name (also called file name) of the file in S3 that you wish to scan for viruses (required)
+        :param str key_name: Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'. (required)
         :return: CloudStorageVirusScanResult
                  If the method is called asynchronously,
                  returns the request thread.
@@ -178,7 +178,7 @@ class ScanCloudStorageApi(object):
         :param str secret_key: AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console (required)
         :param str bucket_region: Name of the region of the S3 bucket, such as 'US-East-1' (required)
         :param str bucket_name: Name of the S3 bucket (required)
-        :param str key_name: Key name (also called file name) of the file in S3 that you wish to scan for viruses (required)
+        :param str key_name: Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'. (required)
         :param bool allow_executables: Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended).
         :param bool allow_invalid_files: Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended).
         :param bool allow_scripts: Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended).
@@ -211,7 +211,7 @@ class ScanCloudStorageApi(object):
         :param str secret_key: AWS S3 secret key for the S3 bucket; you can get this from My Security Credentials in the AWS console (required)
         :param str bucket_region: Name of the region of the S3 bucket, such as 'US-East-1' (required)
         :param str bucket_name: Name of the S3 bucket (required)
-        :param str key_name: Key name (also called file name) of the file in S3 that you wish to scan for viruses (required)
+        :param str key_name: Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'. (required)
         :param bool allow_executables: Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended).
         :param bool allow_invalid_files: Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended).
         :param bool allow_scripts: Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended).
@@ -335,7 +335,7 @@ class ScanCloudStorageApi(object):
         :param async_req bool
         :param str connection_string: Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal. (required)
         :param str container_name: Name of the Blob container within the Azure Blob Storage account (required)
-        :param str blob_path: Path to the blob within the container, such as 'hello.pdf' or '/folder/subfolder/world.pdf' (required)
+        :param str blob_path: Path to the blob within the container, such as 'hello.pdf' or '/folder/subfolder/world.pdf'.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'. (required)
         :return: CloudStorageVirusScanResult
                  If the method is called asynchronously,
                  returns the request thread.
@@ -359,7 +359,7 @@ class ScanCloudStorageApi(object):
         :param async_req bool
         :param str connection_string: Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal. (required)
         :param str container_name: Name of the Blob container within the Azure Blob Storage account (required)
-        :param str blob_path: Path to the blob within the container, such as 'hello.pdf' or '/folder/subfolder/world.pdf' (required)
+        :param str blob_path: Path to the blob within the container, such as 'hello.pdf' or '/folder/subfolder/world.pdf'.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'. (required)
         :return: CloudStorageVirusScanResult
                  If the method is called asynchronously,
                  returns the request thread.
@@ -450,7 +450,7 @@ class ScanCloudStorageApi(object):
         :param async_req bool
         :param str connection_string: Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal. (required)
         :param str container_name: Name of the Blob container within the Azure Blob Storage account (required)
-        :param str blob_path: Path to the blob within the container, such as 'hello.pdf' or '/folder/subfolder/world.pdf' (required)
+        :param str blob_path: Path to the blob within the container, such as 'hello.pdf' or '/folder/subfolder/world.pdf'.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'. (required)
         :param bool allow_executables: Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended).
         :param bool allow_invalid_files: Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended).
         :param bool allow_scripts: Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended).
@@ -481,7 +481,7 @@ class ScanCloudStorageApi(object):
         :param async_req bool
         :param str connection_string: Connection string for the Azure Blob Storage Account; you can get this connection string from the Access Keys tab of the Storage Account blade in the Azure Portal. (required)
         :param str container_name: Name of the Blob container within the Azure Blob Storage account (required)
-        :param str blob_path: Path to the blob within the container, such as 'hello.pdf' or '/folder/subfolder/world.pdf' (required)
+        :param str blob_path: Path to the blob within the container, such as 'hello.pdf' or '/folder/subfolder/world.pdf'.  If the blob path contains Unicode characters, you must base64 encode the blob path and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'. (required)
         :param bool allow_executables: Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended).
         :param bool allow_invalid_files: Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended).
         :param bool allow_scripts: Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended).
@@ -592,7 +592,7 @@ class ScanCloudStorageApi(object):
 
         :param async_req bool
         :param str bucket_name: Name of the bucket in Google Cloud Storage (required)
-        :param str object_name: Name of the object or file in Google Cloud Storage (required)
+        :param str object_name: Name of the object or file in Google Cloud Storage.  If the object name contains Unicode characters, you must base64 encode the object name and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'. (required)
         :param file json_credential_file: Service Account credential for Google Cloud stored in a JSON file. (required)
         :return: CloudStorageVirusScanResult
                  If the method is called asynchronously,
@@ -616,7 +616,7 @@ class ScanCloudStorageApi(object):
 
         :param async_req bool
         :param str bucket_name: Name of the bucket in Google Cloud Storage (required)
-        :param str object_name: Name of the object or file in Google Cloud Storage (required)
+        :param str object_name: Name of the object or file in Google Cloud Storage.  If the object name contains Unicode characters, you must base64 encode the object name and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'. (required)
         :param file json_credential_file: Service Account credential for Google Cloud stored in a JSON file. (required)
         :return: CloudStorageVirusScanResult
                  If the method is called asynchronously,
@@ -707,7 +707,7 @@ class ScanCloudStorageApi(object):
 
         :param async_req bool
         :param str bucket_name: Name of the bucket in Google Cloud Storage (required)
-        :param str object_name: Name of the object or file in Google Cloud Storage (required)
+        :param str object_name: Name of the object or file in Google Cloud Storage.  If the object name contains Unicode characters, you must base64 encode the object name and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'. (required)
         :param file json_credential_file: Service Account credential for Google Cloud stored in a JSON file. (required)
         :param bool allow_executables: Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended).
         :param bool allow_invalid_files: Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended).
@@ -738,7 +738,7 @@ class ScanCloudStorageApi(object):
 
         :param async_req bool
         :param str bucket_name: Name of the bucket in Google Cloud Storage (required)
-        :param str object_name: Name of the object or file in Google Cloud Storage (required)
+        :param str object_name: Name of the object or file in Google Cloud Storage.  If the object name contains Unicode characters, you must base64 encode the object name and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'. (required)
         :param file json_credential_file: Service Account credential for Google Cloud stored in a JSON file. (required)
         :param bool allow_executables: Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended).
         :param bool allow_invalid_files: Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended).
@@ -853,7 +853,7 @@ class ScanCloudStorageApi(object):
         :param str client_secret: Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal (required)
         :param str sharepoint_domain_name: SharePoint Online domain name, such as mydomain.sharepoint.com (required)
         :param str site_id: Site ID (GUID) of the SharePoint site you wish to retrieve the file from (required)
-        :param str file_path: Path to the file within the drive, such as 'hello.pdf' or '/folder/subfolder/world.pdf' (required)
+        :param str file_path: Path to the file within the drive, such as 'hello.pdf' or '/folder/subfolder/world.pdf'.  If the file path contains Unicode characters, you must base64 encode the file path and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'. (required)
         :param str tenant_id: Optional; Tenant ID of your Azure Active Directory
         :param str item_id: SharePoint itemID, such as a DriveItem Id
         :return: CloudStorageVirusScanResult
@@ -881,7 +881,7 @@ class ScanCloudStorageApi(object):
         :param str client_secret: Client Secret access credentials; see description above for instructions on how to get the Client Secret from the Azure Active Directory portal (required)
         :param str sharepoint_domain_name: SharePoint Online domain name, such as mydomain.sharepoint.com (required)
         :param str site_id: Site ID (GUID) of the SharePoint site you wish to retrieve the file from (required)
-        :param str file_path: Path to the file within the drive, such as 'hello.pdf' or '/folder/subfolder/world.pdf' (required)
+        :param str file_path: Path to the file within the drive, such as 'hello.pdf' or '/folder/subfolder/world.pdf'.  If the file path contains Unicode characters, you must base64 encode the file path and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'. (required)
         :param str tenant_id: Optional; Tenant ID of your Azure Active Directory
         :param str item_id: SharePoint itemID, such as a DriveItem Id
         :return: CloudStorageVirusScanResult
@@ -993,7 +993,7 @@ class ScanCloudStorageApi(object):
         :param str sharepoint_domain_name: SharePoint Online domain name, such as mydomain.sharepoint.com (required)
         :param str site_id: Site ID (GUID) of the SharePoint site you wish to retrieve the file from (required)
         :param str tenant_id: Optional; Tenant ID of your Azure Active Directory
-        :param str file_path: Path to the file within the drive, such as 'hello.pdf' or '/folder/subfolder/world.pdf'
+        :param str file_path: Path to the file within the drive, such as 'hello.pdf' or '/folder/subfolder/world.pdf'.  If the file path contains Unicode characters, you must base64 encode the file path and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'.
         :param str item_id: SharePoint itemID, such as a DriveItem Id
         :param bool allow_executables: Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended).
         :param bool allow_invalid_files: Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended).
@@ -1028,7 +1028,7 @@ class ScanCloudStorageApi(object):
         :param str sharepoint_domain_name: SharePoint Online domain name, such as mydomain.sharepoint.com (required)
         :param str site_id: Site ID (GUID) of the SharePoint site you wish to retrieve the file from (required)
         :param str tenant_id: Optional; Tenant ID of your Azure Active Directory
-        :param str file_path: Path to the file within the drive, such as 'hello.pdf' or '/folder/subfolder/world.pdf'
+        :param str file_path: Path to the file within the drive, such as 'hello.pdf' or '/folder/subfolder/world.pdf'.  If the file path contains Unicode characters, you must base64 encode the file path and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'.
         :param str item_id: SharePoint itemID, such as a DriveItem Id
         :param bool allow_executables: Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended).
         :param bool allow_invalid_files: Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended).

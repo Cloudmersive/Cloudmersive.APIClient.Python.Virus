@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **found_viruses** | [**list[CloudStorageVirusFound]**](CloudStorageVirusFound.md) | Array of viruses found, if any | [optional] 
 **error_detailed_description** | **str** | Detailed error message if the operation was not successful | [optional] 
 **file_size** | **int** | Size in bytes of the file that was retrieved and scanned | [optional] 
+**content_information** | [**AdditionalAdvancedScanInformation**](AdditionalAdvancedScanInformation.md) | Contains additional non-threat content verification information | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

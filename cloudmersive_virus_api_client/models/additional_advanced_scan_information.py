@@ -32,25 +32,30 @@ class AdditionalAdvancedScanInformation(object):
     """
     swagger_types = {
         'contains_json': 'bool',
-        'contains_xml': 'bool'
+        'contains_xml': 'bool',
+        'contains_image': 'bool'
     }
 
     attribute_map = {
         'contains_json': 'ContainsJSON',
-        'contains_xml': 'ContainsXML'
+        'contains_xml': 'ContainsXML',
+        'contains_image': 'ContainsImage'
     }
 
-    def __init__(self, contains_json=None, contains_xml=None):  # noqa: E501
+    def __init__(self, contains_json=None, contains_xml=None, contains_image=None):  # noqa: E501
         """AdditionalAdvancedScanInformation - a model defined in Swagger"""  # noqa: E501
 
         self._contains_json = None
         self._contains_xml = None
+        self._contains_image = None
         self.discriminator = None
 
         if contains_json is not None:
             self.contains_json = contains_json
         if contains_xml is not None:
             self.contains_xml = contains_xml
+        if contains_image is not None:
+            self.contains_image = contains_image
 
     @property
     def contains_json(self):
@@ -97,6 +102,29 @@ class AdditionalAdvancedScanInformation(object):
         """
 
         self._contains_xml = contains_xml
+
+    @property
+    def contains_image(self):
+        """Gets the contains_image of this AdditionalAdvancedScanInformation.  # noqa: E501
+
+        True if the input file contains an image  # noqa: E501
+
+        :return: The contains_image of this AdditionalAdvancedScanInformation.  # noqa: E501
+        :rtype: bool
+        """
+        return self._contains_image
+
+    @contains_image.setter
+    def contains_image(self, contains_image):
+        """Sets the contains_image of this AdditionalAdvancedScanInformation.
+
+        True if the input file contains an image  # noqa: E501
+
+        :param contains_image: The contains_image of this AdditionalAdvancedScanInformation.  # noqa: E501
+        :type: bool
+        """
+
+        self._contains_image = contains_image
 
     def to_dict(self):
         """Returns the model properties as a dict"""

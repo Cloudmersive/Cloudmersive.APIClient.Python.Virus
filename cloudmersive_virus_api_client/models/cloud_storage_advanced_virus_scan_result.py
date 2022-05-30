@@ -42,7 +42,8 @@ class CloudStorageAdvancedVirusScanResult(object):
         'verified_file_format': 'str',
         'found_viruses': 'list[CloudStorageVirusFound]',
         'error_detailed_description': 'str',
-        'file_size': 'int'
+        'file_size': 'int',
+        'content_information': 'AdditionalAdvancedScanInformation'
     }
 
     attribute_map = {
@@ -57,10 +58,11 @@ class CloudStorageAdvancedVirusScanResult(object):
         'verified_file_format': 'VerifiedFileFormat',
         'found_viruses': 'FoundViruses',
         'error_detailed_description': 'ErrorDetailedDescription',
-        'file_size': 'FileSize'
+        'file_size': 'FileSize',
+        'content_information': 'ContentInformation'
     }
 
-    def __init__(self, successful=None, clean_result=None, contains_executable=None, contains_invalid_file=None, contains_script=None, contains_password_protected_file=None, contains_restricted_file_format=None, contains_macros=None, verified_file_format=None, found_viruses=None, error_detailed_description=None, file_size=None):  # noqa: E501
+    def __init__(self, successful=None, clean_result=None, contains_executable=None, contains_invalid_file=None, contains_script=None, contains_password_protected_file=None, contains_restricted_file_format=None, contains_macros=None, verified_file_format=None, found_viruses=None, error_detailed_description=None, file_size=None, content_information=None):  # noqa: E501
         """CloudStorageAdvancedVirusScanResult - a model defined in Swagger"""  # noqa: E501
 
         self._successful = None
@@ -75,6 +77,7 @@ class CloudStorageAdvancedVirusScanResult(object):
         self._found_viruses = None
         self._error_detailed_description = None
         self._file_size = None
+        self._content_information = None
         self.discriminator = None
 
         if successful is not None:
@@ -101,6 +104,8 @@ class CloudStorageAdvancedVirusScanResult(object):
             self.error_detailed_description = error_detailed_description
         if file_size is not None:
             self.file_size = file_size
+        if content_information is not None:
+            self.content_information = content_information
 
     @property
     def successful(self):
@@ -377,6 +382,29 @@ class CloudStorageAdvancedVirusScanResult(object):
         """
 
         self._file_size = file_size
+
+    @property
+    def content_information(self):
+        """Gets the content_information of this CloudStorageAdvancedVirusScanResult.  # noqa: E501
+
+        Contains additional non-threat content verification information  # noqa: E501
+
+        :return: The content_information of this CloudStorageAdvancedVirusScanResult.  # noqa: E501
+        :rtype: AdditionalAdvancedScanInformation
+        """
+        return self._content_information
+
+    @content_information.setter
+    def content_information(self, content_information):
+        """Sets the content_information of this CloudStorageAdvancedVirusScanResult.
+
+        Contains additional non-threat content verification information  # noqa: E501
+
+        :param content_information: The content_information of this CloudStorageAdvancedVirusScanResult.  # noqa: E501
+        :type: AdditionalAdvancedScanInformation
+        """
+
+        self._content_information = content_information
 
     def to_dict(self):
         """Returns the model properties as a dict"""
