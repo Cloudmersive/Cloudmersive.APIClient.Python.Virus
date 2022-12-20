@@ -41,6 +41,7 @@ class VirusScanAdvancedResult(object):
         'contains_xml_external_entities': 'bool',
         'contains_insecure_deserialization': 'bool',
         'contains_html': 'bool',
+        'contains_unsafe_archive': 'bool',
         'verified_file_format': 'str',
         'found_viruses': 'list[VirusFound]',
         'content_information': 'AdditionalAdvancedScanInformation'
@@ -57,12 +58,13 @@ class VirusScanAdvancedResult(object):
         'contains_xml_external_entities': 'ContainsXmlExternalEntities',
         'contains_insecure_deserialization': 'ContainsInsecureDeserialization',
         'contains_html': 'ContainsHtml',
+        'contains_unsafe_archive': 'ContainsUnsafeArchive',
         'verified_file_format': 'VerifiedFileFormat',
         'found_viruses': 'FoundViruses',
         'content_information': 'ContentInformation'
     }
 
-    def __init__(self, clean_result=None, contains_executable=None, contains_invalid_file=None, contains_script=None, contains_password_protected_file=None, contains_restricted_file_format=None, contains_macros=None, contains_xml_external_entities=None, contains_insecure_deserialization=None, contains_html=None, verified_file_format=None, found_viruses=None, content_information=None):  # noqa: E501
+    def __init__(self, clean_result=None, contains_executable=None, contains_invalid_file=None, contains_script=None, contains_password_protected_file=None, contains_restricted_file_format=None, contains_macros=None, contains_xml_external_entities=None, contains_insecure_deserialization=None, contains_html=None, contains_unsafe_archive=None, verified_file_format=None, found_viruses=None, content_information=None):  # noqa: E501
         """VirusScanAdvancedResult - a model defined in Swagger"""  # noqa: E501
 
         self._clean_result = None
@@ -75,6 +77,7 @@ class VirusScanAdvancedResult(object):
         self._contains_xml_external_entities = None
         self._contains_insecure_deserialization = None
         self._contains_html = None
+        self._contains_unsafe_archive = None
         self._verified_file_format = None
         self._found_viruses = None
         self._content_information = None
@@ -100,6 +103,8 @@ class VirusScanAdvancedResult(object):
             self.contains_insecure_deserialization = contains_insecure_deserialization
         if contains_html is not None:
             self.contains_html = contains_html
+        if contains_unsafe_archive is not None:
+            self.contains_unsafe_archive = contains_unsafe_archive
         if verified_file_format is not None:
             self.verified_file_format = verified_file_format
         if found_viruses is not None:
@@ -336,6 +341,29 @@ class VirusScanAdvancedResult(object):
         """
 
         self._contains_html = contains_html
+
+    @property
+    def contains_unsafe_archive(self):
+        """Gets the contains_unsafe_archive of this VirusScanAdvancedResult.  # noqa: E501
+
+        True if the uploaded file contains unsafe archive (e.g. zip) content, such as a Zip Bomb, or other configurations of a zip file that could lead to an unsafe extraction  # noqa: E501
+
+        :return: The contains_unsafe_archive of this VirusScanAdvancedResult.  # noqa: E501
+        :rtype: bool
+        """
+        return self._contains_unsafe_archive
+
+    @contains_unsafe_archive.setter
+    def contains_unsafe_archive(self, contains_unsafe_archive):
+        """Sets the contains_unsafe_archive of this VirusScanAdvancedResult.
+
+        True if the uploaded file contains unsafe archive (e.g. zip) content, such as a Zip Bomb, or other configurations of a zip file that could lead to an unsafe extraction  # noqa: E501
+
+        :param contains_unsafe_archive: The contains_unsafe_archive of this VirusScanAdvancedResult.  # noqa: E501
+        :type: bool
+        """
+
+        self._contains_unsafe_archive = contains_unsafe_archive
 
     @property
     def verified_file_format(self):
