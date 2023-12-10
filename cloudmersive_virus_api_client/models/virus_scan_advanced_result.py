@@ -42,6 +42,7 @@ class VirusScanAdvancedResult(object):
         'contains_insecure_deserialization': 'bool',
         'contains_html': 'bool',
         'contains_unsafe_archive': 'bool',
+        'contains_ole_embedded_object': 'bool',
         'verified_file_format': 'str',
         'found_viruses': 'list[VirusFound]',
         'content_information': 'AdditionalAdvancedScanInformation'
@@ -59,12 +60,13 @@ class VirusScanAdvancedResult(object):
         'contains_insecure_deserialization': 'ContainsInsecureDeserialization',
         'contains_html': 'ContainsHtml',
         'contains_unsafe_archive': 'ContainsUnsafeArchive',
+        'contains_ole_embedded_object': 'ContainsOleEmbeddedObject',
         'verified_file_format': 'VerifiedFileFormat',
         'found_viruses': 'FoundViruses',
         'content_information': 'ContentInformation'
     }
 
-    def __init__(self, clean_result=None, contains_executable=None, contains_invalid_file=None, contains_script=None, contains_password_protected_file=None, contains_restricted_file_format=None, contains_macros=None, contains_xml_external_entities=None, contains_insecure_deserialization=None, contains_html=None, contains_unsafe_archive=None, verified_file_format=None, found_viruses=None, content_information=None):  # noqa: E501
+    def __init__(self, clean_result=None, contains_executable=None, contains_invalid_file=None, contains_script=None, contains_password_protected_file=None, contains_restricted_file_format=None, contains_macros=None, contains_xml_external_entities=None, contains_insecure_deserialization=None, contains_html=None, contains_unsafe_archive=None, contains_ole_embedded_object=None, verified_file_format=None, found_viruses=None, content_information=None):  # noqa: E501
         """VirusScanAdvancedResult - a model defined in Swagger"""  # noqa: E501
 
         self._clean_result = None
@@ -78,6 +80,7 @@ class VirusScanAdvancedResult(object):
         self._contains_insecure_deserialization = None
         self._contains_html = None
         self._contains_unsafe_archive = None
+        self._contains_ole_embedded_object = None
         self._verified_file_format = None
         self._found_viruses = None
         self._content_information = None
@@ -105,6 +108,8 @@ class VirusScanAdvancedResult(object):
             self.contains_html = contains_html
         if contains_unsafe_archive is not None:
             self.contains_unsafe_archive = contains_unsafe_archive
+        if contains_ole_embedded_object is not None:
+            self.contains_ole_embedded_object = contains_ole_embedded_object
         if verified_file_format is not None:
             self.verified_file_format = verified_file_format
         if found_viruses is not None:
@@ -364,6 +369,29 @@ class VirusScanAdvancedResult(object):
         """
 
         self._contains_unsafe_archive = contains_unsafe_archive
+
+    @property
+    def contains_ole_embedded_object(self):
+        """Gets the contains_ole_embedded_object of this VirusScanAdvancedResult.  # noqa: E501
+
+        True if the uploaded file contains an OLE embedded object, which can be a significant risk factor  # noqa: E501
+
+        :return: The contains_ole_embedded_object of this VirusScanAdvancedResult.  # noqa: E501
+        :rtype: bool
+        """
+        return self._contains_ole_embedded_object
+
+    @contains_ole_embedded_object.setter
+    def contains_ole_embedded_object(self, contains_ole_embedded_object):
+        """Sets the contains_ole_embedded_object of this VirusScanAdvancedResult.
+
+        True if the uploaded file contains an OLE embedded object, which can be a significant risk factor  # noqa: E501
+
+        :param contains_ole_embedded_object: The contains_ole_embedded_object of this VirusScanAdvancedResult.  # noqa: E501
+        :type: bool
+        """
+
+        self._contains_ole_embedded_object = contains_ole_embedded_object
 
     @property
     def verified_file_format(self):

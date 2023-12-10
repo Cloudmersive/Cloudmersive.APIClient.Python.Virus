@@ -33,21 +33,24 @@ class AdditionalAdvancedScanInformation(object):
     swagger_types = {
         'contains_json': 'bool',
         'contains_xml': 'bool',
-        'contains_image': 'bool'
+        'contains_image': 'bool',
+        'relevant_subfile_name': 'str'
     }
 
     attribute_map = {
         'contains_json': 'ContainsJSON',
         'contains_xml': 'ContainsXML',
-        'contains_image': 'ContainsImage'
+        'contains_image': 'ContainsImage',
+        'relevant_subfile_name': 'RelevantSubfileName'
     }
 
-    def __init__(self, contains_json=None, contains_xml=None, contains_image=None):  # noqa: E501
+    def __init__(self, contains_json=None, contains_xml=None, contains_image=None, relevant_subfile_name=None):  # noqa: E501
         """AdditionalAdvancedScanInformation - a model defined in Swagger"""  # noqa: E501
 
         self._contains_json = None
         self._contains_xml = None
         self._contains_image = None
+        self._relevant_subfile_name = None
         self.discriminator = None
 
         if contains_json is not None:
@@ -56,6 +59,8 @@ class AdditionalAdvancedScanInformation(object):
             self.contains_xml = contains_xml
         if contains_image is not None:
             self.contains_image = contains_image
+        if relevant_subfile_name is not None:
+            self.relevant_subfile_name = relevant_subfile_name
 
     @property
     def contains_json(self):
@@ -125,6 +130,29 @@ class AdditionalAdvancedScanInformation(object):
         """
 
         self._contains_image = contains_image
+
+    @property
+    def relevant_subfile_name(self):
+        """Gets the relevant_subfile_name of this AdditionalAdvancedScanInformation.  # noqa: E501
+
+        Relevant subfile name in an archive format for identified threats, if any  # noqa: E501
+
+        :return: The relevant_subfile_name of this AdditionalAdvancedScanInformation.  # noqa: E501
+        :rtype: str
+        """
+        return self._relevant_subfile_name
+
+    @relevant_subfile_name.setter
+    def relevant_subfile_name(self, relevant_subfile_name):
+        """Sets the relevant_subfile_name of this AdditionalAdvancedScanInformation.
+
+        Relevant subfile name in an archive format for identified threats, if any  # noqa: E501
+
+        :param relevant_subfile_name: The relevant_subfile_name of this AdditionalAdvancedScanInformation.  # noqa: E501
+        :type: str
+        """
+
+        self._relevant_subfile_name = relevant_subfile_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -48,6 +48,7 @@ class ScanCloudStorageApi(object):
         :param str bucket_region: Name of the region of the S3 bucket, such as 'US-East-1' (required)
         :param str bucket_name: Name of the S3 bucket (required)
         :param str key_name: Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'. (required)
+        :param str role_arn: Optional: Role ARN for STS Credential-based access.  This is for advanced access using the Security Token Service and is not required.  If the roleArn contains Unicode characters, you must base64 encode the key name and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'.
         :return: CloudStorageVirusScanResult
                  If the method is called asynchronously,
                  returns the request thread.
@@ -74,12 +75,13 @@ class ScanCloudStorageApi(object):
         :param str bucket_region: Name of the region of the S3 bucket, such as 'US-East-1' (required)
         :param str bucket_name: Name of the S3 bucket (required)
         :param str key_name: Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'. (required)
+        :param str role_arn: Optional: Role ARN for STS Credential-based access.  This is for advanced access using the Security Token Service and is not required.  If the roleArn contains Unicode characters, you must base64 encode the key name and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'.
         :return: CloudStorageVirusScanResult
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['access_key', 'secret_key', 'bucket_region', 'bucket_name', 'key_name']  # noqa: E501
+        all_params = ['access_key', 'secret_key', 'bucket_region', 'bucket_name', 'key_name', 'role_arn']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -132,6 +134,8 @@ class ScanCloudStorageApi(object):
             header_params['bucketName'] = params['bucket_name']  # noqa: E501
         if 'key_name' in params:
             header_params['keyName'] = params['key_name']  # noqa: E501
+        if 'role_arn' in params:
+            header_params['roleArn'] = params['role_arn']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -179,6 +183,7 @@ class ScanCloudStorageApi(object):
         :param str bucket_region: Name of the region of the S3 bucket, such as 'US-East-1' (required)
         :param str bucket_name: Name of the S3 bucket (required)
         :param str key_name: Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'. (required)
+        :param str role_arn: Optional: Role ARN for STS Credential-based access.  This is for advanced access using the Security Token Service and is not required.  If the roleArn contains Unicode characters, you must base64 encode the key name and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'.
         :param bool allow_executables: Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended).
         :param bool allow_invalid_files: Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended).
         :param bool allow_scripts: Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended).
@@ -214,6 +219,7 @@ class ScanCloudStorageApi(object):
         :param str bucket_region: Name of the region of the S3 bucket, such as 'US-East-1' (required)
         :param str bucket_name: Name of the S3 bucket (required)
         :param str key_name: Key name (also called file name) of the file in S3 that you wish to scan for viruses.  If the key name contains Unicode characters, you must base64 encode the key name and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'. (required)
+        :param str role_arn: Optional: Role ARN for STS Credential-based access.  This is for advanced access using the Security Token Service and is not required.  If the roleArn contains Unicode characters, you must base64 encode the key name and prepend it with 'base64:', such as: 'base64:6ZWV6ZWV6ZWV6ZWV6ZWV6ZWV'.
         :param bool allow_executables: Set to false to block executable files (program code) from being allowed in the input file.  Default is false (recommended).
         :param bool allow_invalid_files: Set to false to block invalid files, such as a PDF file that is not really a valid PDF file, or a Word Document that is not a valid Word Document.  Default is false (recommended).
         :param bool allow_scripts: Set to false to block script files, such as a PHP files, Python scripts, and other malicious content or security threats that can be embedded in the file.  Set to true to allow these file types.  Default is false (recommended).
@@ -228,7 +234,7 @@ class ScanCloudStorageApi(object):
                  returns the request thread.
         """
 
-        all_params = ['access_key', 'secret_key', 'bucket_region', 'bucket_name', 'key_name', 'allow_executables', 'allow_invalid_files', 'allow_scripts', 'allow_password_protected_files', 'allow_macros', 'allow_xml_external_entities', 'allow_insecure_deserialization', 'allow_html', 'restrict_file_types']  # noqa: E501
+        all_params = ['access_key', 'secret_key', 'bucket_region', 'bucket_name', 'key_name', 'role_arn', 'allow_executables', 'allow_invalid_files', 'allow_scripts', 'allow_password_protected_files', 'allow_macros', 'allow_xml_external_entities', 'allow_insecure_deserialization', 'allow_html', 'restrict_file_types']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -281,6 +287,8 @@ class ScanCloudStorageApi(object):
             header_params['bucketName'] = params['bucket_name']  # noqa: E501
         if 'key_name' in params:
             header_params['keyName'] = params['key_name']  # noqa: E501
+        if 'role_arn' in params:
+            header_params['roleArn'] = params['role_arn']  # noqa: E501
         if 'allow_executables' in params:
             header_params['allowExecutables'] = params['allow_executables']  # noqa: E501
         if 'allow_invalid_files' in params:

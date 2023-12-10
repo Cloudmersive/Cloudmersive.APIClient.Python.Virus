@@ -152,6 +152,8 @@ class ScanApi(object):
         :param bool allow_insecure_deserialization: Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended).
         :param bool allow_html: Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability].  If set to true, HTML files containing script tags will be allowed, but ContainsScript will be set to true if script tags are present.
         :param bool allow_unsafe_archives: Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed.
+        :param bool allow_ole_embedded_object: Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed.
+        :param str options: Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Default is no options.
         :param str restrict_file_types: Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult=false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled.
         :return: VirusScanAdvancedResult
                  If the method is called asynchronously,
@@ -184,13 +186,15 @@ class ScanApi(object):
         :param bool allow_insecure_deserialization: Set to false to block Insecure Deserialization and other threats embedded in JSON and other object serialization files, and other files that contain embedded content threats.  Set to true to allow these file types.  Default is false (recommended).
         :param bool allow_html: Set to false to block HTML input in the top level file; HTML can contain XSS, scripts, local file accesses and other threats.  Set to true to allow these file types.  Default is false (recommended) [for API keys created prior to the release of this feature default is true for backward compatability].  If set to true, HTML files containing script tags will be allowed, but ContainsScript will be set to true if script tags are present.
         :param bool allow_unsafe_archives: Set to false to block unsafe archives such as Zip Bombs, and other archives that can cause unsafe extraction outcomes.  Default is false (recommended).  If set to true, unsafe archives will be allowed.
+        :param bool allow_ole_embedded_object: Set to false to block OLE embedded objects, which can contain vulnerabilities and executable code.  Default is false (recommended).  If set to true, OLE embedded objects will be allowed.
+        :param str options: Comma separated set of configuration operations.  Include permitJavascriptAndHtmlInPDFs to allow JavaScript and HTML in PDF files.  Default is no options.
         :param str restrict_file_types: Specify a restricted set of file formats to allow as clean as a comma-separated list of file formats, such as .pdf,.docx,.png would allow only PDF, PNG and Word document files.  All files must pass content verification against this list of file formats, if they do not, then the result will be returned as CleanResult=false.  Set restrictFileTypes parameter to null or empty string to disable; default is disabled.
         :return: VirusScanAdvancedResult
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['input_file', 'allow_executables', 'allow_invalid_files', 'allow_scripts', 'allow_password_protected_files', 'allow_macros', 'allow_xml_external_entities', 'allow_insecure_deserialization', 'allow_html', 'allow_unsafe_archives', 'restrict_file_types']  # noqa: E501
+        all_params = ['input_file', 'allow_executables', 'allow_invalid_files', 'allow_scripts', 'allow_password_protected_files', 'allow_macros', 'allow_xml_external_entities', 'allow_insecure_deserialization', 'allow_html', 'allow_unsafe_archives', 'allow_ole_embedded_object', 'options', 'restrict_file_types']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -235,6 +239,10 @@ class ScanApi(object):
             header_params['allowHtml'] = params['allow_html']  # noqa: E501
         if 'allow_unsafe_archives' in params:
             header_params['allowUnsafeArchives'] = params['allow_unsafe_archives']  # noqa: E501
+        if 'allow_ole_embedded_object' in params:
+            header_params['allowOleEmbeddedObject'] = params['allow_ole_embedded_object']  # noqa: E501
+        if 'options' in params:
+            header_params['options'] = params['options']  # noqa: E501
         if 'restrict_file_types' in params:
             header_params['restrictFileTypes'] = params['restrict_file_types']  # noqa: E501
 
